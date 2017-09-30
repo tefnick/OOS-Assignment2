@@ -1,0 +1,71 @@
+Bob plays JACK of DIAMONDS as up card
+Sue plays TEN of HEARTS as up card
+Tom plays THREE of SPADES as up card
+Bob wins the round
+Score is Bob 3, Sue 0, Tom 0
+Bob plays FOUR of HEARTS as up card
+Sue plays TWO of CLUBS as up card
+Tom plays SEVEN of HEARTS as up card
+Tom wins the round
+Score is Bob 3, Sue 0, Tom 3
+Bob plays TWO of SPADES as up card
+Sue plays SIX of CLUBS as up card
+Tom plays SEVEN of CLUBS as up card
+Tom wins the round
+Score is Bob 3, Sue 0, Tom 6
+Bob plays ACE of DIAMONDS as up card
+Sue plays JACK of HEARTS as up card
+Tom plays JACK of SPADES as up card
+Bob wins the round
+Score is Bob 6, Sue 0, Tom 6
+Bob plays THREE of CLUBS as up card
+Sue plays ACE of SPADES as up card
+Tom plays FOUR of DIAMONDS as up card
+Sue wins the round
+Score is Bob 6, Sue 3, Tom 6
+Bob plays TEN of DIAMONDS as up card
+Sue plays SEVEN of SPADES as up card
+Tom plays THREE of HEARTS as up card
+Bob wins the round
+Score is Bob 9, Sue 3, Tom 6
+Bob plays ACE of CLUBS as up card
+Sue plays EIGHT of DIAMONDS as up card
+Tom plays KING of CLUBS as up card
+Bob wins the round
+Score is Bob 12, Sue 3, Tom 6
+Bob plays QUEEN of DIAMONDS as up card
+Sue plays QUEEN of SPADES as up card
+Tom plays FOUR of CLUBS as up card
+War!
+Score is Bob 12, Sue 3, Tom 6
+Bob plays NINE of SPADES as up card
+Sue plays NINE of HEARTS as up card
+Tom plays FIVE of CLUBS as up card
+War!
+Score is Bob 12, Sue 3, Tom 6
+Bob plays FIVE of DIAMONDS as up card
+Sue plays FIVE of HEARTS as up card
+Tom plays FIVE of SPADES as up card
+War!
+Score is Bob 12, Sue 3, Tom 6
+Bob plays EIGHT of HEARTS as up card
+Sue plays EIGHT of CLUBS as up card
+Tom plays KING of SPADES as up card
+Tom wins the round
+Score is Bob 12, Sue 3, Tom 27
+Bob plays TEN of SPADES as up card
+Sue plays KING of DIAMONDS as up card
+Tom plays FOUR of SPADES as up card
+Sue wins the round
+Score is Bob 12, Sue 6, Tom 27
+Bob plays NINE of DIAMONDS as up card
+Sue plays QUEEN of HEARTS as up card
+Tom plays SIX of DIAMONDS as up card
+Sue wins the round
+Score is Bob 12, Sue 9, Tom 27
+Bob plays JACK of CLUBS as up card
+Sue plays TWO of HEARTS as up card
+Tom plays TEN of CLUBS as up card
+Bob wins the round
+Score is Bob 15, Sue 9, Tom 27
+Tom wins the game!
