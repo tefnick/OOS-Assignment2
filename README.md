@@ -77,12 +77,16 @@ resulting zip file to Blackboard.
 
 LATE POLICY:
 -10 pts
+
 RUBRIC
 30 pts: All 3 variations of War execute and output required log messages 
 
 30pts: Object-oriented design including use of polymorphism
 and satisfies # of java files and file size requirements
 and unchecked exceptions for error handling
+
 20 pts: Code is readable
+
 10 pts: UML class diagram
+
 10 pts: At least 10 JUnit test cases and all pass
