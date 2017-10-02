@@ -1,15 +1,30 @@
 package warGame;
-
 import java.util.ArrayList;
-/** makes the deck of cards */
+
+/**
+ *  makes the deck of cards 
+ *  I borrowed some ideas from 
+ */
 public class CardGroup {
 	
+	private static final int numberOfCards = 52;
 	private ArrayList<Card> cards;
 	private int currentSize;
+	private int i, suit, rank;
 	
+	/**
+	 * I borrowed some ideas from here in the constructor
+	 * http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/10/deck-of-cards.html
+	 * TODO: this needs review
+	 */
 	public CardGroup(){
-		this.cards = new ArrayList<Card>();
-		this.currentSize = cards.size();
+		this.cards = new ArrayList<Card>(numberOfCards); //initialize arrayList with max # of cards
+		//initialize the deck with all card suites "i" and ranks "j"
+		for(int i = 0; i <= 3; i++ ){
+			for(int j = 0; j <= 13; j++){
+				cards.add(new Card(i, j));
+			}
+		}
 	}
 	
 	/**

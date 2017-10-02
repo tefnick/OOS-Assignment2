@@ -64,6 +64,14 @@ public class Card {
 				return "INVALID CARD SUIT";
 		}
 	}
+	
+	public int getCardSuit(){
+		return this.cardSuit;
+	}
+	
+	public int getCardValue(){
+		return this.cardValue;
+	}
 
 	/**
 	 * Displays a String representation of this card
