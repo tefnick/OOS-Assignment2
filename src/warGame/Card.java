@@ -11,8 +11,8 @@ public class Card {
 	 * @param cardSuit, an integer between 0 and 3
 	 */
 	public Card(int cardValue, int cardSuit) {
-		this.cardValue = cardValue;
-		this.cardSuit = cardSuit;
+		this.cardValue = cardValue;	//Question: Should we randomize a card value when it gets initialized?
+		this.cardSuit = cardSuit;   //			instead of hard coding it?
 	}
 
 	public String convertCardValueToString() {
