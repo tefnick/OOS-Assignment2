@@ -1,8 +1,9 @@
 package warGame;
 
-import java.util.*;
-import java.awt.List;
-
+/**
+ * Basic model of a Card object.
+ * Declares enums for Rank and Suit and a toString method
+ */
 public class Card {
 	
     public enum Rank { TWO, THREE, FOUR, FIVE, SIX,
@@ -14,15 +15,15 @@ public class Card {
     private final Suit suit;
     
     /**
-     * Constructor
+     * Constructor is visible only to the current package
      * @param rank, Rank type of this card
      * @param suit, Suit type of this card
      */
-    private Card(Rank rank, Suit suit) {
+    public Card(Rank rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;
     }
-
+  
     public Rank getRank() { 
     	return rank; 
     }
@@ -32,8 +33,8 @@ public class Card {
     }
     
     /**
-     * Converts the card Rank and Suit to a String literal
-     * Example: "JACK of DIAMONDS" or "TEN of HEARTS"
+     * Converts the card to a String literal
+     * Example output: "JACK of DIAMONDS" or "TEN of HEARTS"
      * @return String representation of this card
      */
     public String toString() { 
