@@ -1,4 +1,5 @@
 package warGame;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -7,7 +8,9 @@ public class Game {
 	private static int numOfIterations;
 	/* this could be a list instead of array
 	//private static player playerArray[];//need to make player class,
+	 * 
 	*/
+	private ArrayList<Player> players;
 	public static void main(String[] args) {
 		Scanner getInput = new Scanner(System.in);
 		
@@ -24,15 +27,17 @@ public class Game {
 		numOfIterations = getInput.nextInt();
 		
 		//could call populatePlayers(getInput);
-		/* commented out til player class and array/list are implemented
+		 //commented out til player class and array/list are implemented
 		for(int i = 0; i < numOfPlayers; i++) {
-			playerArray[i].name = getInput.nextLine();
+			players.get= getInput.nextLine();
 			System.out.println("Player " + i + " will be " + playerArray[i]);
 		}
-		*/
-		getInput.close();
-		//playGame(playerArray, numOfPrizes, numOfIterations);
 		
+		getInput.close();
+		//round(playerArray, numOfPrizes, numOfIterations);
+		//public void RoundStart() {
+		Round startGame = new Round(players[], numOfPrizes, numOfIterations);
+		//}
 		return;
 	}
 
