@@ -10,7 +10,8 @@ public class Game {
 	//private static player playerArray[];//need to make player class,
 	 * 
 	*/
-	private ArrayList<Player> players;
+	private static ArrayList<Player> players;
+	
 	public static void main(String[] args) {
 		Scanner getInput = new Scanner(System.in);
 		
@@ -27,16 +28,22 @@ public class Game {
 		numOfIterations = getInput.nextInt();
 		
 		//could call populatePlayers(getInput);
-		 //commented out til player class and array/list are implemented
+		//commented out til player class and array/list are implemented
+		players = new ArrayList<Player>();
 		for(int i = 0; i < numOfPlayers; i++) {
-			players.get= getInput.nextLine();
-			System.out.println("Player " + i + " will be " + playerArray[i]);
+			System.out.println("Please enter the name of player " + i + ": ");
+			
+			Player player; //= new Player(getInput.nextLine());
+			//player.setNameOfPlayer(getInput.nextLine());
+			players.add( player = new Player(getInput.nextLine()));
+			
+			System.out.println("Player " + i + " will be " + players.get(i));
 		}
 		
 		getInput.close();
 		//round(playerArray, numOfPrizes, numOfIterations);
 		//public void RoundStart() {
-		Round startGame = new Round(players[], numOfPrizes, numOfIterations);
+		Round startGame = new Round(players, numOfPrizes, numOfIterations);
 		//}
 		return;
 	}
