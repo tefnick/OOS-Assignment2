@@ -28,6 +28,14 @@ public class CardGroup{
     	cardDeck.add(card);
     }
     
+    public Card getCardAtIndex(int index){
+    	return cardDeck.get(index);
+    }
+    
+    public int deckSize(){
+    	return cardDeck.size(); 
+    }
+    
     /**
      * Returns the card deck to use for other classes
      * @return The Card Deck
@@ -35,5 +43,4 @@ public class CardGroup{
     public static ArrayList<Card> displayDeck() {
         return new ArrayList<Card>(cardDeck); 
     }
-
 }

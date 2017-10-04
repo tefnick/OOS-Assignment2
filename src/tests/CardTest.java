@@ -24,4 +24,24 @@ public class CardTest {
 		assertEquals("Deck size is not 52!", 52, cardDeck.size());		
 	}
 
+	@Test
+	public void changeDeckSize(){
+		int deckSize = 10;
+		int i;
+		List<Card> cardDeck = new ArrayList<Card>(deckSize);
+		for(i = 0; i < deckSize; i++)
+			cardDeck.add(new Card(Rank.ACE, Suit.CLUBS)); 
+		
+		assertEquals("Deck size is not 10!", 10, cardDeck.size());		
+	}
+	
+	@Test
+	public void displayAllCardsOnFullTraditionalDeck(){
+		CardGroup cards = new CardGroup();	
+		System.out.println("Size of Card Deck = " + cards.deckSize());
+		for(int i = 0; i < cards.deckSize(); i++)
+			System.out.println(cards.getCardAtIndex(i));
+		assertNotNull("cards list should not be null!", cards.displayDeck());	
+	}
+	
 }
