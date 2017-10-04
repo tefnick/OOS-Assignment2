@@ -3,6 +3,7 @@ package warGame;
 /**
  * Basic model of a Card object.
  * Declares enums for Rank and Suit and a toString method
+ * @author tefnick
  */
 public class Card {
 	

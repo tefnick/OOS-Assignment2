@@ -11,8 +11,9 @@ public class Hand {
 
 	private ArrayList<Card> CurrentHand;
 	
+
 	public Hand(){
-	     CurrentHand = new ArrayList<Card>();
+	    CurrentHand = new ArrayList<Card>();
 	}
 	
 	public Card PlayCard(){
@@ -24,9 +25,5 @@ public class Hand {
 	public void DrawCards(Card card){
 		CurrentHand.add(card);
 	}
-	
-	
-	
-	
-	
+		
 }

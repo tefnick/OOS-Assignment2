@@ -8,6 +8,10 @@ import warGame.Card;
 import warGame.Card.Rank;
 import warGame.Card.Suit;
 import warGame.CardGroup;
+import warGame.Game;
+import warGame.Logger;
+import warGame.Player;
+import warGame.Round;
 
 import org.junit.Test;
 
@@ -42,6 +46,17 @@ public class CardTest {
 		for(int i = 0; i < cards.deckSize(); i++)
 			System.out.println(cards.getCardAtIndex(i));
 		assertNotNull("cards list should not be null!", cards.displayDeck());	
+	}
+	
+	@Test
+	public void testLoggerDisplayFunction(){
+		ArrayList<Player> players = new ArrayList<Player>();
+		players.add(new Player("Nick"));
+	
+		Logger logger = new Logger();
+		
+		logger.display(players.get(0));	
+		System.out.println();;
 	}
 	
 }

@@ -8,7 +8,7 @@ import java.util.List;
  * @author Justin
  *
  */
-class Round {
+public class Round {
 	private ArrayList<Player> players;
 	private int numOfPrizes;
 	private int numOfIterations;
@@ -86,5 +86,17 @@ class Round {
 			//winner.hand.addCards(prizes);
 		}
 		return winner;
+	}
+	
+	public ArrayList<Player> getPlayers(){
+		return this.players;
+	}
+
+	public int getNumOfPrizes() {
+		return this.numOfPrizes;
+	}
+
+	public int getNumOfIterations() {
+		return this.numOfIterations;
 	}
 }

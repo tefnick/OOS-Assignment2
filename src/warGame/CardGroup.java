@@ -5,6 +5,12 @@ import java.util.List;
 import warGame.Card.Suit;
 import warGame.Card.Rank;
 
+/**
+ * This class is used to model and initialize a set of cards.
+ * By default, a traditional 52 card deck
+ * @author tefnick
+ *
+ */
 public class CardGroup{
 	
 	/*Traditional deck size of 52 but can be changed 

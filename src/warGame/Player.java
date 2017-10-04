@@ -15,7 +15,7 @@ public class Player {
 	public Player(String nameOfPlayer) {
 		super();
 		this.nameOfPlayer = nameOfPlayer;
-		HandOfPlayer = null;
+		HandOfPlayer = new Hand();
 		TotalPoints = 0;
 	}
 
@@ -33,6 +33,10 @@ public class Player {
 	
 	public void InvokeDraw(){
 		
+	}
+	
+	public Hand getHandOfPlayer(){
+		return this.HandOfPlayer;
 	}
 	
 	
