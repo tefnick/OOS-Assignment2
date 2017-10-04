@@ -2,6 +2,11 @@ package warGame;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Justin
+ *
+ */
 public class Game {
 	private static int numOfPlayers;
 	private static int numOfPrizes;
@@ -42,9 +47,11 @@ public class Game {
 		
 		getInput.close();
 		//round(playerArray, numOfPrizes, numOfIterations);
-		//public void RoundStart() {
+		
+		//get deck
+		//start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations);
-		//}
+		
 		return;
 	}
 
