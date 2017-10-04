@@ -37,6 +37,7 @@ class Round {
 
 	public  Player compareCards(ArrayList<Player> players) {
 		int numOfPlayers = players.size();
+		Player winner;
 		/*
 		 * roundTracker array values
 		 * index 0: current highest value
@@ -81,7 +82,8 @@ class Round {
 				}
 			}
 			
-			War(warPlayers);
+			winner = War(warPlayers);
+			//winner.hand.addCards(prizes);
 		}
 		return winner;
 	}
