@@ -19,7 +19,7 @@ public class Round {
 		this.numOfPrizes = numOfPrizes;
 		this.numOfIterations = numOfIterations;
 	}
-
+	
 	public void gameStart() {
 		//while no winner or numOfIterations > 0
 		do {

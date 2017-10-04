@@ -38,6 +38,10 @@ public class Player {
 	public Hand getHandOfPlayer(){
 		return this.HandOfPlayer;
 	}
+
+	public int getTotalPoints() {
+		return this.TotalPoints;
+	}
 	
 	
 }

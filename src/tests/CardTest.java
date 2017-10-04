@@ -58,5 +58,5 @@ public class CardTest {
 		logger.display(players.get(0));	
 		System.out.println();;
 	}
-	
+		
 }

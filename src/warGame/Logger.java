@@ -25,5 +25,29 @@ public class Logger {
 		System.out.println(player.getNameOfPlayer() + " plays "
 				+ player.getHandOfPlayer() + " as up card");
 	}
+	
+	public void displayWinnerOfRound(Player player){
+		System.out.println(player.getNameOfPlayer() + " wins the round");
+	}
+	
+	public void declareWar(){
+		System.out.println("War!");
+	}
+	
+	public void displayTie(){
+		System.out.println("Tie");
+	}
+	
+	public void displayScore(Round currentRound){
+		System.out.print("Score is ");
+		for(Player player : currentRound.getPlayers()){
+			System.out.print(player.getNameOfPlayer() + " " 
+					+ player.getTotalPoints() + ",");		
+		}
+	}
+	
+	public void displayWinnerOfGame(Player player){
+		System.out.println(player.getNameOfPlayer() + " wins the game!");
+	}
 
 }
