@@ -1,7 +1,7 @@
 package warGame;
 
 import java.util.Collections;
-import java.util.Random;
+
 
 /**
  * 
@@ -10,22 +10,25 @@ import java.util.Random;
  */
 public class Deck {
 	
-	private CardGroup DeckOfCards;
+	//private CardGroup DeckOfCards;
+	private CardGroup cardDeck = new CardGroup();	
 	
 	/**
 	 * 
 	 */
-	public Deck(CardGroup DeckOfCards){
-		DeckOfCards = DeckOfCards;
+	public Deck(CardGroup cardDeck){
+		this.cardDeck = cardDeck;
 	}
 	
+	@SuppressWarnings("static-access")
 	public Card DistributeCard(){
-		Card TopOfDeckCard = CardGroup.displayDeck().get(0);
-		CardGroup.displayDeck().remove(0);
+		Card TopOfDeckCard = cardDeck.getCardAtIndex(0);
+		cardDeck.displayDeck().remove(0);
 		return TopOfDeckCard;
 	}
 	
+	@SuppressWarnings("static-access")
 	public void Shuffle(){
-		Collections.shuffle(DeckOfCards.displayDeck()); // :)
+		Collections.shuffle(cardDeck.displayDeck()); // :)
 	}
 }
