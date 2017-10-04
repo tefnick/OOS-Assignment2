@@ -20,6 +20,10 @@ public class Deck {
 		this.cardDeck = cardDeck;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("static-access")
 	public Card DistributeCard(){
 		Card TopOfDeckCard = cardDeck.getCardAtIndex(0);
@@ -27,6 +31,9 @@ public class Deck {
 		return TopOfDeckCard;
 	}
 	
+	/**
+	 * 
+	 */
 	@SuppressWarnings("static-access")
 	public void Shuffle(){
 		Collections.shuffle(cardDeck.displayDeck()); // :)

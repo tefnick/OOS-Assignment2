@@ -34,10 +34,19 @@ public class CardGroup{
     	cardDeck.add(card);
     }
     
+    /**
+     * 
+     * @param index
+     * @return
+     */
     public Card getCardAtIndex(int index){
     	return cardDeck.get(index);
     }
     
+    /**
+     * 
+     * @return
+     */
     public int deckSize(){
     	return cardDeck.size(); 
     }

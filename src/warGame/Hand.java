@@ -8,21 +8,32 @@ import java.util.ArrayList;
  *
  */
 public class Hand {
-
+	//Variables for CurrentHand
 	private ArrayList<Card> CurrentHand;
 	
 
+	/**
+	 * 
+	 */
 	public Hand(){
 	    CurrentHand = new ArrayList<Card>();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Card PlayCard(){
 		Card card = CurrentHand.get(0);
 		CurrentHand.remove(0);
 		return card;
 	}
 	
-	public void DrawCards(Card card){
+	/**
+	 * 
+	 * @param card
+	 */
+	public void DrawCard(Card card){
 		CurrentHand.add(card);
 	}
 		
