@@ -51,7 +51,7 @@ class Round {
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
 			new Card card = players.get(i).InvokePlay();
-			if ( card.getValue > roundTracker[0]) {
+			if ( card.getValue() > roundTracker[0]) {
 				roundTracker[0] = card.getValue(); // TODO card implementations 
 				roundTracker[1] = i;
 				//reset war in roundTracker(new highest card)
