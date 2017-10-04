@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author richard
+ * @author Richard A. Bravo
  *
  */
 public class Hand {
