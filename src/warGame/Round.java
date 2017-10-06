@@ -147,6 +147,7 @@ public class Round {
 			Card.Rank highCard;		
 			Card.Rank currentCard = playersAndCards.get(i);
 			Card.Rank previousCard = playersAndCards.get(i - 1);	
+			//TODO needs a war determining segment that tracks all possible war members, 4 max
 			if(currentCard.compareTo(previousCard) > 0){
 				highCard = currentCard;
 				winner = players.get(i);		
