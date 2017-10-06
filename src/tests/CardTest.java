@@ -73,5 +73,23 @@ public class CardTest {
 		winner = round.compareUpCards(players);
 		System.out.println(winner);	
 	}
+	
+	@Test
+	public void CardRankCompareToTest(){
+		Card winner = null;
+		Card card1 = new Card(Rank.TWO, Suit.HEARTS);
+		Card card2 = new Card(Rank.ACE, Suit.HEARTS);
+		
+		if(card1.getRank().compareTo(card2.getRank()) > 0){
+			winner = card1;
+		}else if(card1.getRank().compareTo(card2.getRank()) < 0){
+			winner = card2;
+		}
+		else{
+			Logger.displayTie();
+		}
+		System.out.println("Winner is " + winner);
+		
+	}
 		
 }

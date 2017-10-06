@@ -34,11 +34,11 @@ public class Logger {
 		System.out.println("War!");
 	}
 	
-	public void displayTie(){
+	public static void displayTie(){
 		System.out.println("Tie");
 	}
 	
-	public void displayScore(Round currentRound){
+	public static void displayScore(Round currentRound){
 		System.out.print("Score is ");
 		for(Player player : currentRound.getPlayers()){
 			System.out.print(player.getNameOfPlayer() + " " 
