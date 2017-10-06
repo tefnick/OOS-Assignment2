@@ -135,26 +135,22 @@ public class Round {
 		LinkedHashMap<Player, Card.Rank> playersAndCards = new LinkedHashMap<>();
 		
 		/*iterate through all players and collect their up cards */
-		for(int i = 0; i < players.size(); i++){
+		for(int i = 0; i < players.size(); i++)
 			playersAndCards.put(players.get(i), players.get(i).InvokePlay().getRank());	
-		}
+	
 		/* now compare all collected up cards */
 		for(int i = 0; i < playersAndCards.values().size(); i++){
-			Card.Rank highCard;
-			
+			Card.Rank highCard;		
 			Card.Rank currentCard = playersAndCards.get(i);
-			Card.Rank previousCard = playersAndCards.get(i - 1);
-			
+			Card.Rank previousCard = playersAndCards.get(i - 1);	
 			if(currentCard.compareTo(previousCard) > 0){
 				highCard = currentCard;
-				winner = players.get(i);
-				
+				winner = players.get(i);		
 			}else{
 				highCard = previousCard;
 				winner = players.get(i);
 			}
-		}
-		
+		}	
 		return winner;
 	}
 	
