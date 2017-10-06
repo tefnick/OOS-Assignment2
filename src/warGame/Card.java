@@ -14,6 +14,7 @@ public class Card {
 
     private final Rank rank;
     private final Suit suit;
+    private int Value;
     
     /**
      * Constructor is visible only to the current package
@@ -23,12 +24,21 @@ public class Card {
     public Card(Rank rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;
+        SettingValue();
     }
   
+    /**
+     * 
+     * @return
+     */
     public Rank getRank() { 
     	return rank; 
     }
     
+    /**
+     * 
+     * @return
+     */
     public Suit getSuit() { 
     	return suit; 
     }
@@ -40,6 +50,58 @@ public class Card {
      */
     public String toString() { 
     	return rank + " of " + suit; 
+    }
+
+    
+    public int getValue(){
+    	return this.Value;
+    }
+    /**
+     * 
+     */
+    private void SettingValue(){
+    	switch(this.rank){
+    	case TWO:
+    		this.Value = 2;
+    		return;
+    	case THREE:
+    		this.Value = 3;
+    		return;
+    	case FOUR:
+    		this.Value = 4;
+    		return;
+    	case FIVE:
+    		this.Value = 5;
+    		return;
+    	case SIX:
+    		this.Value = 6;
+    		return;
+    	case SEVEN:
+    		this.Value = 7;
+    		return;
+    	case EIGHT:
+    		this.Value = 8;
+    		return;
+    	case NINE:
+    		this.Value = 9;
+    		return;
+    	case TEN:
+    		this.Value = 10;
+    		return;
+    	case JACK:
+    		this.Value = 11;
+    		return;
+    	case QUEEN:
+    		this.Value = 12;
+    		return;
+    	case KING:
+    		this.Value = 13;
+    		return;
+    	default:
+    		this.Value = 14;
+    		return;
+    	}
+    
     }
 
 }
