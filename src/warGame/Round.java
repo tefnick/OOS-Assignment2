@@ -1,7 +1,11 @@
 package warGame;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+
+import warGame.Card.Rank;
 
 /**
  * 
@@ -14,6 +18,10 @@ public class Round {
 	private int numOfIterations;
 	private ArrayList<Player> warPlayers;
 	
+	public Round(){
+		//empty constructor
+	}
+			
 	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations) {
 		this.players.addAll(players);
 		this.numOfPrizes = numOfPrizes;
@@ -75,8 +83,8 @@ public class Round {
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
 			Card card = players.get(i).InvokePlay();
-			Logger.display(players.get(i), card);
-			if ( card.getValue() > roundTracker[0]) {//TODO getValue, returns int card value
+			Logger.displayUpCard(players.get(i), card);
+			if ( card.getRank() > roundTracker[0]) {//TODO getValue, returns int card value
 				roundTracker[0] = card.getValue(); // TODO card implementations 
 				roundTracker[1] = i;
 				//reset war in roundTracker(new highest card)
@@ -111,6 +119,39 @@ public class Round {
 			winner = War(warPlayers);
 			//winner.hand.addCards(prizes);
 		}
+		return winner;
+	}
+	
+	/**
+	 * Compares up cards from all the players in the round
+	 * @param players in this round
+	 * @return the winning player of this round
+	 */
+	public Player compareUpCards(ArrayList<Player> players){
+		Player winner = null;
+		LinkedHashMap<Player, Card.Rank> playersAndCards = new LinkedHashMap<>();
+		
+		/*iterate through all players and collect their up cards */
+		for(int i = 0; i < players.size(); i++){
+			playersAndCards.put(players.get(i), players.get(i).InvokePlay().getRank());	
+		}
+		/* now compare all collected up cards */
+		for(int i = 0; i < playersAndCards.values().size(); i++){
+			Card.Rank highCard;
+			
+			Card.Rank currentCard = playersAndCards.get(i);
+			Card.Rank previousCard = playersAndCards.get(i - 1);
+			
+			if(currentCard.compareTo(previousCard) > 0){
+				highCard = currentCard;
+				winner = players.get(i);
+				
+			}else{
+				highCard = previousCard;
+				winner = players.get(i);
+			}
+		}
+		
 		return winner;
 	}
 	

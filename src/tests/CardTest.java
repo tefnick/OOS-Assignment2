@@ -52,11 +52,26 @@ public class CardTest {
 	public void testLoggerDisplayFunction(){
 		ArrayList<Player> players = new ArrayList<Player>();
 		players.add(new Player("Nick"));
-	
-		Logger logger = new Logger();
-		
-		logger.display(players.get(0));	
+		Card card = new Card(Rank.ACE, Suit.CLUBS);
+			
+		Logger.displayUpCard(players.get(0),card);	
 		System.out.println();;
+	}
+	
+	@Test
+	public void compareUpCardsTest(){
+		ArrayList<Player> players = new ArrayList<Player>();
+		Player player1 = new Player("Nick");
+		Player player2 = new Player("Justin");
+		players.add(player1);
+		players.add(player2);
+		Round round = new Round();
+		Player winner;
+		
+		players.get(0).InvokePlay().getRank(); //TODO: need to fix Player:InvokePlay and Hand: PLayCard to test this
+		players.get(1).InvokePlay().getRank();
+		winner = round.compareUpCards(players);
+		System.out.println(winner);	
 	}
 		
 }

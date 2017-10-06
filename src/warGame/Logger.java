@@ -21,9 +21,9 @@ public class Logger {
 	 * @param game
 	 * @param player
 	 */
-	public static void display(Player player, Card card){		
+	public static void displayUpCard(Player player, Card card){		
 		System.out.println(player.getNameOfPlayer() + " plays "
-				+ card.getRank() + " of " + card.getSuit() + "as up card");
+				+ card.getRank() + " of " + card.getSuit() + " as up card");
 	}
 	
 	public static void displayWinnerOfRound(Player player){
