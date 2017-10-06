@@ -66,6 +66,10 @@ public class Player {
 	public int getTotalPoints() {
 		return this.TotalPoints;
 	}
+
+	public void increasePlayerPoints(){
+		this.TotalPoints++;
+	}
 	
 	
 }

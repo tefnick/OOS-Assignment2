@@ -56,7 +56,7 @@ public class Round {
 				int highestNumberOfPoints = 0;
 				for (int i = 0; i < players.size(); i++) {
 					if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
-						gameWinner = players.get(i);	
+						gameWinner = players.get(i);
 					}
 				}
 				gameOver++;
@@ -151,6 +151,7 @@ public class Round {
 				winner = players.get(i);
 			}
 		}	
+		winner.increasePlayerPoints();
 		return winner;
 	}
 	
