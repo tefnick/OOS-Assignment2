@@ -4,4 +4,4 @@ List team member names below. If not team member names, grader will assume solo 
 Nick Ruiz
 Justin De Luna
 Richard Bravo
-Moyo Akinrinmade
+Moyosore Akinrinmade
