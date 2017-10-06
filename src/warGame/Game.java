@@ -51,7 +51,8 @@ public class Game {
 		//get deck
 		//start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations);
-		
+		Player gameWinner = startGame.gameStart();
+		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
 

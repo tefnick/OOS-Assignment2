@@ -36,5 +36,8 @@ public class Hand {
 	public void DrawCard(Card card){
 		CurrentHand.add(card);
 	}
-		
+	
+	public int getNumberOfCards() {
+		return CurrentHand.size();
+	}
 }

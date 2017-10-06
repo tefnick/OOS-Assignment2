@@ -20,19 +20,43 @@ public class Round {
 		this.numOfIterations = numOfIterations;
 	}
 	
-	public void gameStart() {
+	//round driver
+	public Player gameStart() {
 		//while no winner or numOfIterations > 0
+		int roundIteration = 0;
+		int gameOver = 0;
+		Player gameWinner = null;
 		do {
 			//winner check (52 cards in hand)
 				//if winner break and call logger with winner
 			//compare cards
 			
-			Player winner = compareCards(players);
-			
+			Player roundWinner = compareCards(players);
+			Logger.displayWinnerOfRound(roundWinner);
 			//if = war()
-		}while();
-			
-		
+			//check game over by max cards
+			for (int i = 0; i < players.size(); i++) {
+				if ( players.get(i).getHandOfPlayer().getNumberOfCards() == 52) {
+					//gameWinner = players.get(i); //might not need to return, just print from logger that this player won
+					gameOver++;
+					return players.get(i); //^^
+				}
+			}
+			//check game over by number of iterations
+			roundIteration++;
+			if (roundIteration == numOfIterations) {
+				int highestNumberOfPoints = 0;
+				for (int i = 0; i < players.size(); i++) {
+					if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
+						gameWinner = players.get(i);	
+					}
+				}
+				gameOver++;
+				return gameWinner;
+			}
+		}while(gameOver == 0);
+	
+		return gameWinner;
 	}
 
 	public  Player compareCards(ArrayList<Player> players) {
@@ -51,7 +75,7 @@ public class Round {
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
 			new Card card = players.get(i).InvokePlay();
-			if ( card.getValue() > roundTracker[0]) {
+			if ( card.getRank() > roundTracker[0]) {
 				roundTracker[0] = card.getValue(); // TODO card implementations 
 				roundTracker[1] = i;
 				//reset war in roundTracker(new highest card)

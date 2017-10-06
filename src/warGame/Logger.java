@@ -26,7 +26,7 @@ public class Logger {
 				+ player.getHandOfPlayer() + " as up card");
 	}
 	
-	public void displayWinnerOfRound(Player player){
+	public static void displayWinnerOfRound(Player player){
 		System.out.println(player.getNameOfPlayer() + " wins the round");
 	}
 	
@@ -46,7 +46,7 @@ public class Logger {
 		}
 	}
 	
-	public void displayWinnerOfGame(Player player){
+	public static void displayWinnerOfGame(Player player){
 		System.out.println(player.getNameOfPlayer() + " wins the game!");
 	}
 
