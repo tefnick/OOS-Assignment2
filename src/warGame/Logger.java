@@ -21,16 +21,16 @@ public class Logger {
 	 * @param game
 	 * @param player
 	 */
-	public void display(Player player){		
+	public static void display(Player player, Card card){		
 		System.out.println(player.getNameOfPlayer() + " plays "
-				+ player.getHandOfPlayer() + " as up card");
+				+ card.getRank() + " of " + card.getSuit() + "as up card");
 	}
 	
 	public static void displayWinnerOfRound(Player player){
 		System.out.println(player.getNameOfPlayer() + " wins the round");
 	}
 	
-	public void declareWar(){
+	public static void declareWar(){
 		System.out.println("War!");
 	}
 	

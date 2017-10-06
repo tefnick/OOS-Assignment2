@@ -42,9 +42,9 @@ public class Round {
 					return players.get(i); //^^
 				}
 			}
-			//check game over by number of iterations
+			//check game over by number of iterations, game winner unnecessary for return version
 			roundIteration++;
-			if (roundIteration == numOfIterations) {
+			if (roundIteration == numOfIterations) {// TODO Tie check 
 				int highestNumberOfPoints = 0;
 				for (int i = 0; i < players.size(); i++) {
 					if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
@@ -75,6 +75,7 @@ public class Round {
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
 			Card card = players.get(i).InvokePlay();
+			Logger.display(players.get(i), card);
 			if ( card.getValue() > roundTracker[0]) {//TODO getValue, returns int card value
 				roundTracker[0] = card.getValue(); // TODO card implementations 
 				roundTracker[1] = i;
@@ -82,6 +83,7 @@ public class Round {
 				for(int j = 2; j <= 5; j++) {
 					roundTracker[j] = 0;
 				}
+				winner = players.get(roundTracker[1]);
 			}
 			else if(card.getValue == roundTracker[0]) {// TODO card implementations
 				if(roundTracker[2] == 0) {//no war yet
@@ -105,7 +107,7 @@ public class Round {
 					warPlayers.add(players.get(roundTracker[j]));
 				}
 			}
-			
+			Logger.declareWar();
 			winner = War(warPlayers);
 			//winner.hand.addCards(prizes);
 		}

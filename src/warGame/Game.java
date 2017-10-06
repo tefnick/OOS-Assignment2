@@ -33,7 +33,6 @@ public class Game {
 		numOfIterations = getInput.nextInt();
 		
 		//could call populatePlayers(getInput);
-		//commented out til player class and array/list are implemented
 		players = new ArrayList<Player>();
 		for(int i = 0; i < numOfPlayers; i++) {
 			System.out.println("Please enter the name of player " + i + ": ");
