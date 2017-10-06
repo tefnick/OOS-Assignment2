@@ -40,8 +40,9 @@ public class Round {
 			//compare cards
 			
 			Player roundWinner = compareCards(players);
+			roundWinner.increasePlayerPoints();//remove if done in compare
 			Logger.displayWinnerOfRound(roundWinner);
-			//if = war()
+
 			//check game over by max cards
 			for (int i = 0; i < players.size(); i++) {
 				if ( players.get(i).getHandOfPlayer().getNumberOfCards() == 52) {
@@ -120,8 +121,11 @@ public class Round {
 			//Before you call War you must figure out which
 			//variation of war will be used
 			winner = War(warPlayers);
-			//winner.hand.addCards(prizes);
+			
+		
 		}
+		//winner.hand.addCards(prizes);//implement prizes
+
 		return winner;
 	}
 	
@@ -151,7 +155,7 @@ public class Round {
 				winner = players.get(i);
 			}
 		}	
-		winner.increasePlayerPoints();
+		//TODO winner.getPrizes();
 		return winner;
 	}
 	
