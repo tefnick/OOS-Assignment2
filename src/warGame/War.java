@@ -1,7 +1,15 @@
 package warGame;
 
 public interface War {
-	void WarCompareCards();//compareCards function is in round
-	void WinnerOfWar();
+	/**
+	 * 
+	 * @param Cards
+	 */
+	void WarCompareCards(Card[] Cards);//compareCards function is in round
 	
+	/**
+	 * 
+	 * @return
+	 */
+	Player WinnerOfWar();
 }

@@ -11,6 +11,7 @@ public class Game {
 	private static int numOfPlayers;
 	private static int numOfPrizes;
 	private static int numOfIterations;
+	private static String variation;
 	/* this could be a list instead of array
 	//private static player playerArray[];//need to make player class,
 	 * 
@@ -26,11 +27,14 @@ public class Game {
 		System.out.println("Please enter the number of players: ");
 		numOfPlayers = getInput.nextInt();
 		//could call get numPrizes(getInput)
-		System.out.println("Please enter the number of prizes in a war");
+		System.out.println("Please enter the number of prizes in a war: ");
 		numOfPrizes = getInput.nextInt();
 		//could call getIterations(getInput);
-		System.out.println("How many iterations should be played this game?");
+		System.out.println("How many iterations should be played this game: ");
 		numOfIterations = getInput.nextInt();
+		System.out.println("What variation: ");
+		variation = getInput.next();
+		
 		
 		//could call populatePlayers(getInput);
 		players = new ArrayList<Player>();
@@ -49,7 +53,7 @@ public class Game {
 		
 		//get deck
 		//start round
-		Round startGame = new Round(players, numOfPrizes, numOfIterations);
+		Round startGame = new Round(players, numOfPrizes, numOfIterations, variation);
 		Player gameWinner = startGame.gameStart();
 		Logger.displayWinnerOfGame(gameWinner);
 		return;

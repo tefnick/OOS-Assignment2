@@ -17,15 +17,19 @@ public class Round {
 	private int numOfPrizes;
 	private int numOfIterations;
 	private ArrayList<Player> warPlayers;
+	private variation VariationForWar;
+	
+	public enum variation {A, B, C}
 	
 	public Round(){
 		//empty constructor
 	}
 			
-	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations) {
+	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations, variation variation) {
 		this.players.addAll(players);
 		this.numOfPrizes = numOfPrizes;
 		this.numOfIterations = numOfIterations;
+		this.VariationForWar = variation;
 	}
 	
 	//round driver
@@ -36,7 +40,7 @@ public class Round {
 		Player gameWinner = null;
 		do {
 			//winner check (52 cards in hand)
-				//if winner break and call logger with winner
+			//if winner break and call logger with winner
 			//compare cards
 			
 			Player roundWinner = compareCards(players);
@@ -85,7 +89,7 @@ public class Round {
 		for (int i = 0; i < numOfPlayers; i++) {
 			Card card = players.get(i).InvokePlay();
 			Logger.displayUpCard(players.get(i), card);
-			if ( card.getRank() > roundTracker[0]) {//TODO getValue, returns int card value
+			if ( card.getValue() > roundTracker[0]) {//TODO getValue, returns int card value
 				roundTracker[0] = card.getValue(); // TODO card implementations 
 				roundTracker[1] = i;
 				//reset war in roundTracker(new highest card)
@@ -94,7 +98,7 @@ public class Round {
 				}
 				winner = players.get(roundTracker[1]);
 			}
-			else if(card.getValue == roundTracker[0]) {// TODO card implementations
+			else if(card.getValue() == roundTracker[0]) {// TODO card implementations
 				if(roundTracker[2] == 0) {//no war yet
 				roundTracker[2] = 1; //set war to true
 				roundTracker[3] = i; //add second player
@@ -120,6 +124,14 @@ public class Round {
 			
 			//Before you call War you must figure out which
 			//variation of war will be used
+			switch(this.VariationForWar){
+			case A:
+				
+			case B:
+				
+			case C:
+				
+			}
 			winner = War(warPlayers);
 			
 		
@@ -136,7 +148,7 @@ public class Round {
 	 */
 	public Player compareUpCards(ArrayList<Player> players){
 		Player winner = null;
-		LinkedHashMap<Player, Card.Rank> playersAndCards = new LinkedHashMap<>();
+		LinkedHashMap<Player, Card.Rank> playersAndCards = new LinkedHashMap<Player, Card.Rank>();
 		
 		/*iterate through all players and collect their up cards */
 		for(int i = 0; i < players.size(); i++)
@@ -147,6 +159,7 @@ public class Round {
 			Card.Rank highCard;		
 			Card.Rank currentCard = playersAndCards.get(i);
 			Card.Rank previousCard = playersAndCards.get(i - 1);	
+			
 			//TODO needs a war determining segment that tracks all possible war members, 4 max
 			if(currentCard.compareTo(previousCard) > 0){
 				highCard = currentCard;
