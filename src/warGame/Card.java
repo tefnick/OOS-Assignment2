@@ -43,7 +43,7 @@ public class Card {
     	return suit; 
     }
     public int assignRankValue(){
-    	int value;
+    	int value = 0;
     	switch(rank){
     	case TWO:
     		value = 2;
@@ -85,7 +85,7 @@ public class Card {
     		value =14;
     		break;
     	}
-		return 0;
+		return value;
     	
     }
     
