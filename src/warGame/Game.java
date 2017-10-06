@@ -2,6 +2,11 @@ package warGame;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Justin
+ *
+ */
 public class Game {
 	private static int numOfPlayers;
 	private static int numOfPrizes;
@@ -28,7 +33,6 @@ public class Game {
 		numOfIterations = getInput.nextInt();
 		
 		//could call populatePlayers(getInput);
-		//commented out til player class and array/list are implemented
 		players = new ArrayList<Player>();
 		for(int i = 0; i < numOfPlayers; i++) {
 			System.out.println("Please enter the name of player " + i + ": ");
@@ -42,9 +46,12 @@ public class Game {
 		
 		getInput.close();
 		//round(playerArray, numOfPrizes, numOfIterations);
-		//public void RoundStart() {
+		
+		//get deck
+		//start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations);
-		//}
+		Player gameWinner = startGame.gameStart();
+		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
 
