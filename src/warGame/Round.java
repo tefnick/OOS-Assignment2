@@ -108,6 +108,9 @@ public class Round {
 				}
 			}
 			Logger.declareWar();
+			
+			//Before you call War you must figure out which
+			//variation of war will be used
 			winner = War(warPlayers);
 			//winner.hand.addCards(prizes);
 		}

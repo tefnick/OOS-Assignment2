@@ -11,6 +11,10 @@ public class Player {
 	private Hand HandOfPlayer;
 	private int TotalPoints;
 	
+	/**
+	 * Constructor for Player Object
+	 * @param nameOfPlayer
+	 */
 	public Player(String nameOfPlayer) {
 		this.nameOfPlayer = nameOfPlayer;
 		this.HandOfPlayer = new Hand();
