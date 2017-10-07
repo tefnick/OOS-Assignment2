@@ -21,6 +21,7 @@ public class Round {
 	
 	public enum variation {A, B, C}
 	
+	
 	public Round(){
 		//empty constructor
 	}
@@ -87,7 +88,7 @@ public class Round {
 
 	public  Player compareCards(ArrayList<Player> players) {
 		int numOfPlayers = players.size();
-		Player winner;
+		Player winner = null;
 		/*
 		 * roundTracker array values
 		 * index 0: current highest value
@@ -140,17 +141,18 @@ public class Round {
 			
 			//Before you call War you must figure out which
 			//variation of war will be used
-			/*switch(this.VariationForWar){
-			case A:
-				
-			case B:
-				
-			case C:
-				
-			}*/
-			winner = War(warPlayers);
+			switch(this.VariationForWar){
+				case A:
+					WarVariationA WarVariationA = new WarVariationA(players, numOfIterations);
+					winner = WarVariationA.WinnerOfWar();
+				case B:
+					WarVariationB WarVariationB = new WarVariationB(players);
+					winner = WarVariationB.WinnerOfWar();
+				case C:
+				default:
+					winner = compareUpCards(players);
+			}
 			
-		
 		}
 		//winner.hand.addCards(prizes);//implement prizes
 		players.get(roundTracker[1]).addPlayerPoints(players.size());

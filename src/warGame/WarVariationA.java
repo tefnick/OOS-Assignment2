@@ -7,7 +7,7 @@ public class WarVariationA implements War {
 	/**
 	 * 
 	 */
-	private Player[] Players;
+	private ArrayList<Player> Players;
 	
 	/**
 	 * 
@@ -27,9 +27,9 @@ public class WarVariationA implements War {
 	 * 
 	 * @param Players
 	 */
-	public WarVariationA(Player[] Players, int iteration){
-	this.Players = Players;
-	this.iteration = iteration;
+	public WarVariationA(ArrayList<Player> Players, int iteration){
+		this.Players = Players;
+		this.iteration = iteration;
 	}
 	
 	/**

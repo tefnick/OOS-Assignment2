@@ -5,11 +5,11 @@ import java.util.LinkedHashMap;
 
 public class WarVariationB implements War {
 	
-	private Player[] players;
+	private ArrayList<Player> players;
 	private Player winnerOfWar;
 	private ArrayList<Card> cards = new ArrayList<Card>();	
 	
-	public WarVariationB(Player[] players) {
+	public WarVariationB(ArrayList<Player> players) {
 		this.players = players;	
 	}
 	
