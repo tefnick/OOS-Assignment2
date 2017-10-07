@@ -70,6 +70,8 @@ public class Player {
 	public void increasePlayerPoints(){
 		this.TotalPoints++;
 	}
-	
+	public void addPlayerPoints(int points) {
+		this.TotalPoints += points;
+	}
 	
 }
