@@ -40,4 +40,8 @@ public class Hand {
 	public int getNumberOfCards() {
 		return CurrentHand.size();
 	}
+	
+	public void addCard(Card card) {
+		CurrentHand.add(card);
+	}
 }

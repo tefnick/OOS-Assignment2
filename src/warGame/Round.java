@@ -148,28 +148,33 @@ public class Round {
 	 */
 	public Player compareUpCards(ArrayList<Player> players){
 		Player winner = null;
-		LinkedHashMap<Player, Card.Rank> playersAndCards = new LinkedHashMap<Player, Card.Rank>();
-		
+		//LinkedHashMap<Player, Card.Rank> playersAndCards = new LinkedHashMap<Player, Card.Rank>();
+		LinkedHashMap<Player, Card> playersAndCards = new LinkedHashMap<Player, Card>();
 		/*iterate through all players and collect their up cards */
 		for(int i = 0; i < players.size(); i++)
-			playersAndCards.put(players.get(i), players.get(i).InvokePlay().getRank());	
+			playersAndCards.put(players.get(i), players.get(i).InvokePlay()/*.getRank()*/);	
 	
 		/* now compare all collected up cards */
 		for(int i = 0; i < playersAndCards.values().size(); i++){
-			Card.Rank highCard;		
-			Card.Rank currentCard = playersAndCards.get(i);
-			Card.Rank previousCard = playersAndCards.get(i - 1);	
+			Card highCard;		
+			Card currentCard = playersAndCards.get(i);
+			Card previousCard = playersAndCards.get(i - 1);	
 			
 			//TODO needs a war determining segment that tracks all possible war members, 4 max
-			if(currentCard.compareTo(previousCard) > 0){
+			if(currentCard.getRank().compareTo(previousCard.getRank()) > 0){
 				highCard = currentCard;
 				winner = players.get(i);		
 			}else{
 				highCard = previousCard;
-				winner = players.get(i);
+				winner = players.get(i - 1);
 			}
+			
 		}	
-		//TODO winner.getPrizes();
+		//adds won cards to winning players hand 
+		for(int i = 0; i < playersAndCards.values().size(); i++) {		
+			winner.getHandOfPlayer().addCard(playersAndCards.get(i));
+		}
+			
 		return winner;
 	}
 	
