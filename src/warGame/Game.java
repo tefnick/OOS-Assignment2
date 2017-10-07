@@ -2,6 +2,8 @@ package warGame;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import warGame.Round.variation;
+
 /**
  * 
  * @author Justin
@@ -11,7 +13,9 @@ public class Game {
 	private static int numOfPlayers;
 	private static int numOfPrizes;
 	private static int numOfIterations;
-	private static String variation;
+	private static String variationForGame;
+	//private variation Variation;
+	//private enum variation {A, B, C};
 	/* this could be a list instead of array
 	//private static player playerArray[];//need to make player class,
 	 * 
@@ -32,7 +36,7 @@ public class Game {
 		//could call getIterations(getInput);
 		System.out.println("How many iterations should be played this game: ");
 		numOfIterations = getInput.nextInt();
-		System.out.println("What variation: ");
+		System.out.println("What variation(A, B, C):  ");
 
 		//variation = getInput.next().toUpperCase();
 
@@ -57,18 +61,27 @@ public class Game {
 		
 		//get deck
 		//start round
-		Round startGame = new Round(players, numOfPrizes, numOfIterations, getVariation());
+		Round startGame = new Round(players, numOfPrizes, numOfIterations, VariationForWar);
 		Player gameWinner = startGame.gameStart();
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
 
 	public static String getVariation() {
-		return variation;
+		return Variation;
 	}
-
+/*
 	public static void setVariation(String variation) {
-		Game.variation = variation;
+		//enum VariationForWar = variation;
+		for(variation VariationForWar : values()) {
+			if(VariationForWar.toString().equals(variation)) {
+				VariationForWar = VariationForWar;
+			}
+		}
+	}
+	*/
+	public static void setVariation(String variation){
+		variationForGame = variation;
 	}
 
 }

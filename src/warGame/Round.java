@@ -17,16 +17,17 @@ public class Round {
 	private int numOfPrizes;
 	private int numOfIterations;
 	private ArrayList<Player> warPlayers;
-	private variation VariationForWar;
+	private String VariationForWar;
+	/*private variation VariationForWar;
 	
 	public enum variation {A, B, C}
 	
-	
+	*/
 	public Round(){
 		//empty constructor
 	}
 			
-	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations, variation variation) {
+	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations, String variation) {
 		this.players.addAll(players);
 		this.numOfPrizes = numOfPrizes;
 		this.numOfIterations = numOfIterations;
@@ -57,7 +58,7 @@ public class Round {
 				}
 			}
 			//check game over by number of iterations, game winner unnecessary for return version
-			if (Game.getVariation().equals("A")) {
+			if (.getVariation().equals("A")) {
 			roundIteration++;
 			if (roundIteration == numOfIterations) {// TODO Tie check 
 				int highestNumberOfPoints = 0;
@@ -101,7 +102,7 @@ public class Round {
 		 */
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
-			Card card = players.get(i).InvokePlay(players.get(i));
+			Card card = players.get(i).InvokePlay();
 			
 			Logger.displayUpCard(players.get(i), card);
 			if ( card.getValue() > roundTracker[0]) {//TODO getValue, returns int card value
@@ -170,7 +171,7 @@ public class Round {
 		LinkedHashMap<Player, Card> playersAndCards = new LinkedHashMap<Player, Card>();
 		/*iterate through all players and collect their up cards */
 		for(int i = 0; i < players.size(); i++)
-			playersAndCards.put(players.get(i), players.get(i).InvokePlay(players.get(i))/*.getRank()*/);	
+			playersAndCards.put(players.get(i), players.get(i).InvokePlay()/*.getRank()*/);	
 	
 		/* now compare all collected up cards */
 		for(int i = 0; i < playersAndCards.values().size(); i++){

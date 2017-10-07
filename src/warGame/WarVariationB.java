@@ -22,7 +22,7 @@ public class WarVariationB implements War {
 		
 		/*iterate through all players and collect their up cards */
 		for(int i = 0; i < players.size(); i++)
-			playersAndCards.put(players.get(i), players.get(i).InvokePlay(players.get(i)));	
+			playersAndCards.put(players.get(i), players.get(i).InvokePlay());	
 	
 		
 		/* now compare all collected up cards */
