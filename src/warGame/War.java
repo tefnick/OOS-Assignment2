@@ -7,7 +7,7 @@ public interface War {
 	 * 
 	 * @param Cards
 	 */
-	void WarCompareCards(ArrayList<Player> players);//compareCards function is in round
+	abstract void WarCompareCards(ArrayList<Player> players);//compareCards function is in round
 	
 	/**
 	 * 
