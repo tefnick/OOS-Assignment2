@@ -1,11 +1,13 @@
 package warGame;
 
+import java.util.ArrayList;
+
 public interface War {
 	/**
 	 * 
 	 * @param Cards
 	 */
-	void WarCompareCards(Card[] Cards);//compareCards function is in round
+	void WarCompareCards(ArrayList<Player> players);//compareCards function is in round
 	
 	/**
 	 * 
