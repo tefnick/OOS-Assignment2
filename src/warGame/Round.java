@@ -56,8 +56,21 @@ public class Round {
 				}
 			}
 			//check game over by number of iterations, game winner unnecessary for return version
+			if (Game.getVariation().equals("A")) {
 			roundIteration++;
 			if (roundIteration == numOfIterations) {// TODO Tie check 
+				int highestNumberOfPoints = 0;
+				for (int i = 0; i < players.size(); i++) {
+					if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
+						gameWinner = players.get(i);
+					}
+				}
+				gameOver++;
+				return gameWinner;
+			}
+			}
+			//check game over from lack of playing cards left, game winner has most points
+			if(roundWinner.getHandOfPlayer().getNumberOfCards() == 0) {
 				int highestNumberOfPoints = 0;
 				for (int i = 0; i < players.size(); i++) {
 					if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
@@ -88,14 +101,17 @@ public class Round {
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
 			Card card = players.get(i).InvokePlay();
+			
 			Logger.displayUpCard(players.get(i), card);
 			if ( card.getValue() > roundTracker[0]) {//TODO getValue, returns int card value
 				roundTracker[0] = card.getValue(); // TODO card implementations 
 				roundTracker[1] = i;
+				
 				//reset war in roundTracker(new highest card)
 				for(int j = 2; j <= 5; j++) {
 					roundTracker[j] = 0;
 				}
+				
 				winner = players.get(roundTracker[1]);
 			}
 			else if(card.getValue() == roundTracker[0]) {// TODO card implementations
@@ -124,20 +140,20 @@ public class Round {
 			
 			//Before you call War you must figure out which
 			//variation of war will be used
-			switch(this.VariationForWar){
+			/*switch(this.VariationForWar){
 			case A:
 				
 			case B:
 				
 			case C:
 				
-			}
+			}*/
 			winner = War(warPlayers);
 			
 		
 		}
 		//winner.hand.addCards(prizes);//implement prizes
-
+		players.get(roundTracker[1]).addPlayerPoints(players.size());
 		return winner;
 	}
 	

@@ -33,7 +33,11 @@ public class Game {
 		System.out.println("How many iterations should be played this game: ");
 		numOfIterations = getInput.nextInt();
 		System.out.println("What variation: ");
+<<<<<<< HEAD
 		variation = getInput.next().toUpperCase();
+=======
+		setVariation(getInput.next());
+>>>>>>> branch 'master' of https://github.com/tefnick/OOS-Assignment2.git
 		
 		
 		//could call populatePlayers(getInput);
@@ -53,10 +57,18 @@ public class Game {
 		
 		//get deck
 		//start round
-		Round startGame = new Round(players, numOfPrizes, numOfIterations, variation);
+		Round startGame = new Round(players, numOfPrizes, numOfIterations, getVariation());
 		Player gameWinner = startGame.gameStart();
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
+	}
+
+	public static String getVariation() {
+		return variation;
+	}
+
+	public static void setVariation(String variation) {
+		Game.variation = variation;
 	}
 
 }
