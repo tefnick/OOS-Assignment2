@@ -33,7 +33,7 @@ public class Game {
 		System.out.println("How many iterations should be played this game: ");
 		numOfIterations = getInput.nextInt();
 		System.out.println("What variation: ");
-		variation = getInput.next();
+		variation = getInput.next().toUpperCase();
 		
 		
 		//could call populatePlayers(getInput);
