@@ -8,6 +8,7 @@ public class WarVariationB implements War {
 	private ArrayList<Player> players;
 	private Player winnerOfWar;
 	private ArrayList<Card> cards = new ArrayList<Card>();	
+	private int pointscounter = 0;
 	
 	public WarVariationB(ArrayList<Player> players) {
 		this.players = players;	
@@ -15,13 +16,13 @@ public class WarVariationB implements War {
 	
 	@Override
 	public void WarCompareCards(ArrayList<Player> players) {
-		int pointscounter = 0;
+		
 		Player winner = null;
 		LinkedHashMap<Player, Card> playersAndCards = new LinkedHashMap<Player, Card>();
 		
 		/*iterate through all players and collect their up cards */
 		for(int i = 0; i < players.size(); i++)
-			playersAndCards.put(players.get(i), players.get(i).InvokePlay());	
+			playersAndCards.put(players.get(i), players.get(i).InvokePlay(players.get(i)));	
 	
 		
 		/* now compare all collected up cards */
@@ -30,7 +31,6 @@ public class WarVariationB implements War {
 			Card currentCard = playersAndCards.get(i);
 			Card previousCard = playersAndCards.get(i - 1);	
 		
-			//TODO needs a war determining segment that tracks all possible war members, 4 max
 			if(currentCard.getRank().compareTo(previousCard.getRank()) == 0){
 				cards.add(previousCard);
 				cards.add(currentCard);
@@ -54,7 +54,7 @@ public class WarVariationB implements War {
 		
 		winner.addPlayerPoints(pointscounter);
 		this.winnerOfWar = winner;
-		
+		pointscounter = 0;
 	}
 
 	

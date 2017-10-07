@@ -33,11 +33,11 @@ public class Game {
 		System.out.println("How many iterations should be played this game: ");
 		numOfIterations = getInput.nextInt();
 		System.out.println("What variation: ");
-<<<<<<< HEAD
-		variation = getInput.next().toUpperCase();
-=======
-		setVariation(getInput.next());
->>>>>>> branch 'master' of https://github.com/tefnick/OOS-Assignment2.git
+
+		//variation = getInput.next().toUpperCase();
+
+		setVariation(getInput.next().toUpperCase());
+
 		
 		
 		//could call populatePlayers(getInput);

@@ -40,8 +40,8 @@ public class Player {
 	/**
 	 * 
 	 */
-	public Card InvokePlay(){
-		return this.HandOfPlayer.PlayCard();
+	public Card InvokePlay(Player player){
+		return this.HandOfPlayer.PlayCard(player);
 	}
 	
 	/**

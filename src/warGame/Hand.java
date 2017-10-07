@@ -23,8 +23,9 @@ public class Hand {
 	 * 
 	 * @return
 	 */
-	public Card PlayCard(){
+	public Card PlayCard(Player player){
 		Card card = CurrentHand.get(0);
+		Logger.displayUpCard(player, card);
 		CurrentHand.remove(0);
 		return card;
 	}

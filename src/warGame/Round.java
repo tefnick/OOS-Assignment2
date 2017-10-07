@@ -101,7 +101,7 @@ public class Round {
 		 */
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
-			Card card = players.get(i).InvokePlay();
+			Card card = players.get(i).InvokePlay(players.get(i));
 			
 			Logger.displayUpCard(players.get(i), card);
 			if ( card.getValue() > roundTracker[0]) {//TODO getValue, returns int card value
@@ -170,7 +170,7 @@ public class Round {
 		LinkedHashMap<Player, Card> playersAndCards = new LinkedHashMap<Player, Card>();
 		/*iterate through all players and collect their up cards */
 		for(int i = 0; i < players.size(); i++)
-			playersAndCards.put(players.get(i), players.get(i).InvokePlay()/*.getRank()*/);	
+			playersAndCards.put(players.get(i), players.get(i).InvokePlay(players.get(i))/*.getRank()*/);	
 	
 		/* now compare all collected up cards */
 		for(int i = 0; i < playersAndCards.values().size(); i++){
