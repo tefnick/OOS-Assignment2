@@ -70,12 +70,12 @@ public class Game {
 		getInput.close();
 		//round(playerArray, numOfPrizes, numOfIterations);
 		CardGroup deckOfCards = new CardGroup();
-		deckOfCards.displayDeck();
+		//deckOfCards.displayDeck();
 		Deck deck = new Deck(deckOfCards);
 
 		//Collections.shuffle(deck.getDeck().displayDeck());
 		deck.Shuffle();
-		deckOfCards.displayDeck();
+		//deckOfCards.displayDeck();
 		
 		while(deck.hasCards()) {
 			for(Player player : players)

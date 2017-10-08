@@ -47,10 +47,13 @@ public class Round {
 			//if winner break and call logger with winner
 			//compare cards
 			if(Game.getVariation().equals("A")) {
-				roundWinner = compareUpCards(players);
+				//roundWinner = compareUpCards(players);
+				roundWinner = compareCards(players);
 			} else if(Game.getVariation().equals("B")) {
-				roundWinner = compareUpCards(players);
+				//roundWinner = compareUpCards(players);
+				roundWinner = compareCards(players);
 			} else {
+				//roundWinner = compareCards(players);
 				roundWinner = compareCards(players);
 			}
 			roundWinner.increasePlayerPoints();//remove if done in compare
@@ -111,7 +114,7 @@ public class Round {
 		for (int i = 0; i < numOfPlayers; i++) {
 			Card card = players.get(i).InvokePlay();
 			
-			Logger.displayUpCard(players.get(i), card);
+			//Logger.displayUpCard(players.get(i), card);
 			if ( card.getValue() > roundTracker[0]) {//TODO getValue, returns int card value
 				roundTracker[0] = card.getValue(); // TODO card implementations 
 				roundTracker[1] = i;
