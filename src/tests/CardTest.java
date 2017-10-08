@@ -64,7 +64,7 @@ public class CardTest {
 		Player player2 = new Player("Justin");
 		players.add(player1);
 		players.add(player2);
-		Round round = new Round();
+		Round round = new Round(players, 0, 0, null);
 		Player winner;
 		
 		players.get(0).InvokePlay().getRank();

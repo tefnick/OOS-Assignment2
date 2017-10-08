@@ -49,7 +49,7 @@ public class Round {
 				roundWinner = compareCards(players);
 				Logger.displayScore(players);
 			}
-			roundWinner.increasePlayerPoints();//remove if done in compare
+			//roundWinner.increasePlayerPoints();//remove if done in compare
 			Logger.displayWinnerOfRound(roundWinner);
 			
 
