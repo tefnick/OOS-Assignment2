@@ -67,7 +67,7 @@ public class CardTest {
 		Round round = new Round();
 		Player winner;
 		
-		players.get(0).InvokePlay().getRank(); //TODO: need to fix Player:InvokePlay and Hand: PLayCard to test this
+		players.get(0).InvokePlay().getRank();
 		players.get(1).InvokePlay().getRank();
 		winner = round.compareUpCards(players);
 		System.out.println(winner);	

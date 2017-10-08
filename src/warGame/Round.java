@@ -41,7 +41,7 @@ public class Round {
 		int roundIteration = 0;
 		int gameOver = 0;
 		Player gameWinner = null;
-		Player roundWinner = null;
+		Player roundWinner = new Player("CPU");
 		do {
 			//winner check (52 cards in hand)
 			//if winner break and call logger with winner
@@ -52,13 +52,17 @@ public class Round {
 			} else if(Game.getVariation().equals("B")) {
 				//roundWinner = compareUpCards(players);
 				roundWinner = compareCards(players);
+				
+				
 			} else {
 				//roundWinner = compareCards(players);
 				roundWinner = compareCards(players);
+
 			}
+			
 			roundWinner.increasePlayerPoints();//remove if done in compare
 			Logger.displayWinnerOfRound(roundWinner);
-
+		
 			//check game over by max cards
 			for (int i = 0; i < players.size(); i++) {
 				if ( players.get(i).getHandOfPlayer().getNumberOfCards() == 52) {
@@ -135,6 +139,7 @@ public class Round {
 				}else{
 					roundTracker[5] = i;//add 4th player
 				}
+				
 			}else {
 				continue;// do nothing
 			}
@@ -154,20 +159,15 @@ public class Round {
 			//variation of war will be used
 			if(Game.getVariation().equals("A")) {
 				WarVariationA WarVariationA = new WarVariationA(players, numOfIterations);
-				winner = WarVariationA.WinnerOfWar();
+				//winner = WarVariationA.WinnerOfWar();
+			}else if(Game.getVariation().equals("B")){
+				WarVariationB WarVariationB = new WarVariationB(players);
+				//winner = WarVariationB.WinnerOfWar();
+			}else{
+				WarVariationC WarVariationC = new WarVariationC();
+				//winner = WarVariationC.WinnerOfWar();
 			}
 			
-			/*switch(this.VariationForWar){
-				case A:
-					
-					
-				case B:
-					WarVariationB WarVariationB = new WarVariationB(players);
-					winner = WarVariationB.WinnerOfWar();
-				case C:
-				default:
-					winner = compareUpCards(players);
-			}*/
 			
 		}
 		//winner.hand.addCards(prizes);//implement prizes
