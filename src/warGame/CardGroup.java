@@ -55,7 +55,15 @@ public class CardGroup{
      * Returns the card deck to use for other classes
      * @return The Card Deck
      */
-    public List<Card> displayDeck() {
-        return this.cardDeck; 
+    public void displayDeck() {
+    	for(int i = 0; i < cardDeck.size(); i++){
+    		System.out.println(cardDeck.get(i));
+    	}
     }
+
+	public static List<Card> getCardDeck() {
+		return cardDeck;
+	}
+    
+
 }

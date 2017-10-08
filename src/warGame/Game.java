@@ -63,17 +63,18 @@ public class Game {
 			Player player = new Player(playerName);
 			players.add( player);
 			
-			System.out.println("Player " + (i+1) + " will be " + players.get(i).getNameOfPlayer());
+			System.out.println("Player " + (i+1) + " will be " + players.get(i).getNameOfPlayer() + "\n");
+			
 		}//while();
 		
 		getInput.close();
 		//round(playerArray, numOfPrizes, numOfIterations);
 		CardGroup deckOfCards = new CardGroup();
-		System.out.println(deckOfCards.displayDeck().toString());
+		deckOfCards.displayDeck();
 		Deck deck = new Deck(deckOfCards);
-		deck.Shuffle();
+
 		//Collections.shuffle(deck.getDeck().displayDeck());
-		System.out.println(deck.getDeck().displayDeck());
+		deckOfCards.displayDeck();
 		
 		while(deck.hasCards()) {
 			for(Player player : players)

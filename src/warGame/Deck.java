@@ -29,7 +29,7 @@ public class Deck {
 	//@SuppressWarnings("static-access")
 	public Card DistributeCard(){
 		Card TopOfDeckCard = cardDeck.getCardAtIndex(0);
-		cardDeck.displayDeck().remove(0);
+		cardDeck.getCardDeck().remove(0);
 		return TopOfDeckCard;
 	}
 	
@@ -38,7 +38,7 @@ public class Deck {
 	 */
 	//@SuppressWarnings("static-access")
 	public void Shuffle(){
-		Collections.shuffle(this.cardDeck.displayDeck()); // :)
+		Collections.shuffle((List<?>) this.cardDeck); // :)
 		
 	}
 	
