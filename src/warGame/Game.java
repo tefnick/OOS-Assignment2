@@ -35,15 +35,15 @@ public class Game {
 		// Collections.shuffle(deck.getDeck().displayDeck());
 		deck.Shuffle();
 		// deckOfCards.displayDeck();
-		for (int i = 52; i >0; i ++) {
+		/*for (int i = 52; i >0; i ++) {
 			for(Player player: players) {
 				player.InvokeDraw(deck.DistributeCard());
 			}
-		}
-		/*while (deck.hasCards() == true) {
+		}*/
+		while (deck.hasCards() == true) {
 			for (Player player : players)
 				player.InvokeDraw(deck.DistributeCard());
-		}*/
+		}
 
 		// get deck
 		// start round
