@@ -29,7 +29,7 @@ public class WarVariationB implements War {
 				
 			}
 		}
-		System.out.println("End of discards");
+		//System.out.println("End of discards");
 		player1Card = players.get(0).InvokePlay();
 		player2Card = players.get(1).InvokePlay();
 		this.pointsCounter += 2;
@@ -93,6 +93,7 @@ public class WarVariationB implements War {
 			winner = players.get(0);
 			Logger.displayWinnerOfRound(winner);
 			winner.increasePlayerPoints();
+			Logger.displayScore(players);
 			
 		}else{//if player 2 has high card
 			highCard = player2Card; 
@@ -100,9 +101,10 @@ public class WarVariationB implements War {
 //			System.out.println(players.get(1).getNameOfPlayer());
 			Logger.displayWinnerOfRound(winner);
 			winner.increasePlayerPoints();
+			Logger.displayScore(players);
 		}
 		
-	System.out.println("End of War!");
+	
 	winner.addPlayerPoints(this.pointsCounter);
 	this.pointsCounter = 0;
 	this.WinnerOfWar = winner;

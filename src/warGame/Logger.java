@@ -38,12 +38,13 @@ public class Logger {
 		System.out.println("Tie");
 	}
 	
-	public static void displayScore(Round currentRound){
+	public static void displayScore(ArrayList<Player> players){
 		System.out.print("Score is ");
-		for(Player player : currentRound.getPlayers()){
+		for(Player player : players){
 			System.out.print(player.getNameOfPlayer() + " " 
-					+ player.getTotalPoints() + ",");		
+					+ player.getTotalPoints() + ", ");		
 		}
+		System.out.println();
 	}
 	
 	public static void displayWinnerOfGame(Player player){

@@ -43,12 +43,15 @@ public class Round {
 			} else if(Game.getVariation().equals("B")) {
 				//roundWinner = compareUpCards(players);
 				roundWinner = compareCards(players);
+				Logger.displayScore(players);
 			} else {
 				//roundWinner = compareCards(players);
 				roundWinner = compareCards(players);
+				Logger.displayScore(players);
 			}
 			roundWinner.increasePlayerPoints();//remove if done in compare
 			Logger.displayWinnerOfRound(roundWinner);
+			
 
 			//check game over by max cards
 			for (int i = 0; i < players.size(); i++) {
