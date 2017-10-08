@@ -48,6 +48,29 @@ public class WarVariationA implements War {
 			}
 		}
 		//System.out.println("End of discards");
+		if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1){
+			winner = players.get(1);
+			for(int i = 0; i < Cards.size(); i++){
+				if(!Cards.isEmpty()){
+					winner.getHandOfPlayer().DrawCard(Cards.get(i));
+					Cards.remove(i);
+				}
+			}
+			this.WinnerOfWar = winner;
+			return;
+		}
+		if(players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
+			winner = players.get(0);
+			for(int i = 0; i < Cards.size(); i++){
+				if(!Cards.isEmpty()){
+					winner.getHandOfPlayer().DrawCard(Cards.get(i));
+					Cards.remove(i);
+				}
+			}
+			this.WinnerOfWar = winner;
+			return;
+		}
+		
 		player1Card = players.get(0).InvokePlay();
 		player2Card = players.get(1).InvokePlay();
 		Cards.add(player1Card);

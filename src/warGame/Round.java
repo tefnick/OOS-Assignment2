@@ -79,9 +79,19 @@ public class Round {
 			//check game over from lack of playing cards left, game winner has most points
 			if(roundWinner.getHandOfPlayer().getNumberOfCards() == 0) {
 				int highestNumberOfPoints = 0;
-				for (int i = 0; i < players.size(); i++) {
-					if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
-						gameWinner = players.get(i);
+				if(!this.VariationForWar.equalsIgnoreCase("A")){
+					for (int i = 0; i < players.size(); i++) {
+						if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
+							gameWinner = players.get(i);
+							return gameWinner;
+						}
+					}
+				}else{
+					for (int i = 0; i < players.size(); i++) {
+						if(players.get(i).getHandOfPlayer().getNumberOfCards() != 0) {
+							gameWinner = players.get(i);
+							return gameWinner;
+						}
 					}
 				}
 				gameOver++;
@@ -107,6 +117,29 @@ public class Round {
 		 */
 		int roundTracker[] = {0,0,0,0,0,0};
 		for (int i = 0; i < numOfPlayers; i++) {
+			
+			//There should be a check here and return 
+			if(players.get(i).getHandOfPlayer().getNumberOfCards() < 1){
+				System.out.println("Player " + players.get(i).getNameOfPlayer() + " has run out of cards");	
+				if(this.VariationForWar.equalsIgnoreCase("A")){
+					for(int j = 0; j < players.size(); j++){
+						if(!players.get(j).getNameOfPlayer().equalsIgnoreCase(players.get(i).getNameOfPlayer())){
+							winner = players.get(j);
+							return winner;
+						}
+					}
+				}else if(this.VariationForWar.equalsIgnoreCase("B")){
+					for(int j = 0; j < players.size(); j++){
+						if(!players.get(j).getNameOfPlayer().equalsIgnoreCase(players.get(i).getNameOfPlayer())){
+							winner = players.get(j);
+							return winner;
+						}
+					}
+				}else{
+					
+				}
+			}
+			
 			Card card = players.get(i).InvokePlay();
 			
 			//Logger.displayUpCard(players.get(i), card);
