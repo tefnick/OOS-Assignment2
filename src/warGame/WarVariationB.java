@@ -1,62 +1,106 @@
 package warGame;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class WarVariationB implements War {
 	
 	private ArrayList<Player> players;
-	private Player winnerOfWar;
+	private Player WinnerOfWar;
 	private ArrayList<Card> cards = new ArrayList<Card>();	
-	private int pointscounter = 0;
+	private int pointsCounter = 0;
 	
 	public WarVariationB(ArrayList<Player> players) {
 		this.players = players;	
 	}
 	
-	@Override
-	public void WarCompareCards(ArrayList<Player> players) {
-		
-		Player winner = null;
-		HashMap<Player, Card> playersAndCards = new HashMap<Player, Card>();
-		
-		/*iterate through all players and collect their up cards */
-		for(int i = 0; i < players.size(); i++)
-			playersAndCards.put(players.get(i), players.get(i).InvokePlay());	
 	
+	public void WarCompareCards(ArrayList<Player> players){
+		Player winner = null;
+		Card player1Card;
+		Card player2Card;
+		Card highCard;
 		
-		/* now compare all collected up cards */
-		for(int i = 0; i < playersAndCards.values().size(); i++){
-			Card highCard;		
-			Card currentCard = playersAndCards.get(i);
-			Card previousCard = playersAndCards.get(i - 1);	
-		
-			if(currentCard.getRank().compareTo(previousCard.getRank()) == 0){ // if same
-				cards.add(previousCard);
-				cards.add(currentCard);
-				WarCompareCards(players);
+		if(players.get(0).getHandOfPlayer().getNumberOfCards() > 4 && players.get(1).getHandOfPlayer().getNumberOfCards() > 4){
+			for(int i = 0; i < 3; i++){
+				players.get(0).InvokePlay();
+				players.get(1).InvokePlay();
+				this.pointsCounter += 2;
 			}
+		}
+		
+		player1Card = players.get(0).InvokePlay();
+		player2Card = players.get(1).InvokePlay();
+		this.pointsCounter += 2;
+
+		if(player1Card.getValue() == player2Card.getValue()){
+			if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1 && players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
+				winner = null;
+				this.pointsCounter = 0;
+				Logger.displayTie();
+				return;
+			}
+			if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1){
+				highCard = player1Card;
+				winner = players.get(1);
+				//winner.increasePlayerPoints();
+				winner.addPlayerPoints(this.pointsCounter);
+				this.pointsCounter = 0;
+				return;
+			}
+			if(players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
+				highCard = player1Card;
+				winner = players.get(0);
+				//winner.increasePlayerPoints();
+				winner.addPlayerPoints(this.pointsCounter);
+				this.pointsCounter = 0;
+				return;
+			}
+			player1Card = players.get(0).InvokePlay();
+			player2Card = players.get(1).InvokePlay();
+			this.pointsCounter += 2;
+			while(player1Card.getRank().compareTo(player2Card.getRank()) == 0){
+				if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1 && players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
+					winner = null;
+					this.pointsCounter = 0;
+					return;
+				}
+				if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1){
+					winner = players.get(1);
+					winner.addPlayerPoints(this.pointsCounter);
+					this.pointsCounter = 0;
+					return;
+					
+				}
+				if(players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
+					winner = players.get(0);
+					winner.addPlayerPoints(this.pointsCounter);
+					this.pointsCounter = 0;
+					return;
+					
+				}
+				player1Card = players.get(0).InvokePlay();
+				player2Card = players.get(1).InvokePlay();
+				this.pointsCounter += 2;
+			}
+		}
+		
+		if(player1Card.getValue() > player2Card.getValue()){//if player 1 has highcard
+			highCard = player1Card;
+			winner = players.get(0);
+			winner.increasePlayerPoints();
 			
-			if(currentCard.getRank().compareTo(previousCard.getRank()) > 0){
-				highCard = currentCard;
-				winner = players.get(i);
-				pointscounter++;
-				winner.increasePlayerPoints();
-				
-				
-			}else{
-				highCard = previousCard;
-				winner = players.get(i-1);
-				pointscounter++;
-				winner.increasePlayerPoints();
-			}
-		}	
+		}else{//if player 2 has high card
+			highCard = player2Card; 
+			winner = players.get(1);
+			winner.increasePlayerPoints();
+		}
 		
-		winner.addPlayerPoints(pointscounter);
-		Logger.displayWinnerOfRound(winner);
-		this.winnerOfWar = winner;
-		pointscounter = 0;
+	System.out.println("End of War!");
+	winner.addPlayerPoints(this.pointsCounter);
+	this.pointsCounter = 0;
+	this.WinnerOfWar = winner;
+	return;
 	}
 
 	
@@ -65,8 +109,7 @@ public class WarVariationB implements War {
 	 * @return
 	 */
 	public Player WinnerOfWar(){
-		Logger.displayWinnerOfGame(winnerOfWar);
-		return this.winnerOfWar;
+		return this.WinnerOfWar;
 	}
 
 

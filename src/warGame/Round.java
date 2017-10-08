@@ -18,14 +18,6 @@ public class Round {
 	private int numOfIterations;
 	private ArrayList<Player> warPlayers;
 	private String VariationForWar;
-	/*private variation VariationForWar;
-	
-	public enum variation {A, B, C}
-	
-	*/
-	public Round(){
-		//empty constructor
-	}
 			
 	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations, String variation) {
 		this.players = players;
@@ -40,7 +32,7 @@ public class Round {
 		int roundIteration = 0;
 		int gameOver = 0;
 		Player gameWinner = null;
-		Player roundWinner = new Player("CPU");
+		Player roundWinner = null;
 		do {
 			//winner check (52 cards in hand)
 			//if winner break and call logger with winner
@@ -51,17 +43,13 @@ public class Round {
 			} else if(Game.getVariation().equals("B")) {
 				//roundWinner = compareUpCards(players);
 				roundWinner = compareCards(players);
-				
-				
 			} else {
 				//roundWinner = compareCards(players);
 				roundWinner = compareCards(players);
-
 			}
-			
 			roundWinner.increasePlayerPoints();//remove if done in compare
 			Logger.displayWinnerOfRound(roundWinner);
-		
+
 			//check game over by max cards
 			for (int i = 0; i < players.size(); i++) {
 				if ( players.get(i).getHandOfPlayer().getNumberOfCards() == 52) {
@@ -138,7 +126,6 @@ public class Round {
 				}else{
 					roundTracker[5] = i;//add 4th player
 				}
-				
 			}else {
 				continue;// do nothing
 			}
@@ -158,16 +145,15 @@ public class Round {
 			//variation of war will be used
 			if(Game.getVariation().equals("A")) {
 				WarVariationA WarVariationA = new WarVariationA(players, numOfIterations);
+				WarVariationA.WarCompareCards(players);
 				//winner = WarVariationA.WinnerOfWar();
 			}else if(Game.getVariation().equals("B")){
 				WarVariationB WarVariationB = new WarVariationB(players);
 				WarVariationB.WarCompareCards(players);
 				//winner = WarVariationB.WinnerOfWar();
 			}else{
-				WarVariationC WarVariationC = new WarVariationC();
-				//winner = WarVariationC.WinnerOfWar();
+				
 			}
-			
 			
 		}
 		//winner.hand.addCards(prizes);//implement prizes
