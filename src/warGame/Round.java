@@ -83,6 +83,7 @@ public class Round {
 					for (int i = 0; i < players.size(); i++) {
 						if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
 							gameWinner = players.get(i);
+							Logger.displayWinnerOfGame(gameWinner);
 							return gameWinner;
 						}
 					}
@@ -90,6 +91,7 @@ public class Round {
 					for (int i = 0; i < players.size(); i++) {
 						if(players.get(i).getHandOfPlayer().getNumberOfCards() != 0) {
 							gameWinner = players.get(i);
+							Logger.displayWinnerOfGame(gameWinner);
 							return gameWinner;
 						}
 					}
