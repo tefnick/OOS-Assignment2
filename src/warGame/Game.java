@@ -74,6 +74,7 @@ public class Game {
 		Deck deck = new Deck(deckOfCards);
 
 		//Collections.shuffle(deck.getDeck().displayDeck());
+		deck.Shuffle();
 		deckOfCards.displayDeck();
 		
 		while(deck.hasCards()) {

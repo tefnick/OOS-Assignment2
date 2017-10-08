@@ -38,7 +38,7 @@ public class Deck {
 	 */
 	//@SuppressWarnings("static-access")
 	public void Shuffle(){
-		Collections.shuffle((List<?>) this.cardDeck); // :)
+		Collections.shuffle(this.cardDeck.getCardDeck()); // :)
 		
 	}
 	
