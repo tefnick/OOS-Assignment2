@@ -28,7 +28,8 @@ public class Round {
 	}
 			
 	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations, String variation) {
-		this.players.addAll(players);
+		System.out.print(players.toString());
+		this.players = players;
 		this.numOfPrizes = numOfPrizes;
 		this.numOfIterations = numOfIterations;
 		this.VariationForWar = variation;
@@ -40,12 +41,18 @@ public class Round {
 		int roundIteration = 0;
 		int gameOver = 0;
 		Player gameWinner = null;
+		Player roundWinner = null;
 		do {
 			//winner check (52 cards in hand)
 			//if winner break and call logger with winner
 			//compare cards
-			
-			Player roundWinner = compareCards(players);
+			if(Game.getVariation().equals("A")) {
+				roundWinner = compareUpCards(players);
+			} else if(Game.getVariation().equals("B")) {
+				roundWinner = compareUpCards(players);
+			} else {
+				roundWinner = compareCards(players);
+			}
 			roundWinner.increasePlayerPoints();//remove if done in compare
 			Logger.displayWinnerOfRound(roundWinner);
 
@@ -58,7 +65,7 @@ public class Round {
 				}
 			}
 			//check game over by number of iterations, game winner unnecessary for return version
-			if (.getVariation().equals("A")) {
+			if (Game.getVariation().equals("A")) {
 			roundIteration++;
 			if (roundIteration == numOfIterations) {// TODO Tie check 
 				int highestNumberOfPoints = 0;
@@ -142,17 +149,22 @@ public class Round {
 			
 			//Before you call War you must figure out which
 			//variation of war will be used
-			switch(this.VariationForWar){
+			if(Game.getVariation().equals("A")) {
+				WarVariationA WarVariationA = new WarVariationA(players, numOfIterations);
+				winner = WarVariationA.WinnerOfWar();
+			}
+			
+			/*switch(this.VariationForWar){
 				case A:
-					WarVariationA WarVariationA = new WarVariationA(players, numOfIterations);
-					winner = WarVariationA.WinnerOfWar();
+					
+					
 				case B:
 					WarVariationB WarVariationB = new WarVariationB(players);
 					winner = WarVariationB.WinnerOfWar();
 				case C:
 				default:
 					winner = compareUpCards(players);
-			}
+			}*/
 			
 		}
 		//winner.hand.addCards(prizes);//implement prizes

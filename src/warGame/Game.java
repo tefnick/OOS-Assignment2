@@ -1,8 +1,9 @@
 package warGame;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-import warGame.Round.variation;
+//import warGame.Round.variation;
 
 /**
  * 
@@ -47,28 +48,49 @@ public class Game {
 		//could call populatePlayers(getInput);
 		players = new ArrayList<Player>();
 		for(int i = 0; i < numOfPlayers; i++) {
-			System.out.println("Please enter the name of player " + i + ": ");
+		//do {
+			System.out.println("Please enter the name of player " + (i + 1) + ": ");
 			
-			Player player; //= new Player(getInput.nextLine());
+			//Player player; //= new Player(getInput.nextLine());
 			//player.setNameOfPlayer(getInput.nextLine());
-			players.add( player = new Player(getInput.nextLine()));
+			String playerName = "";
 			
-			System.out.println("Player " + i + " will be " + players.get(i));
-		}
+			//if(getInput.hasNextLine()) {
+			while(playerName.isEmpty()) {
+				playerName = getInput.nextLine(); 
+			//}
+			}
+			Player player = new Player(playerName);
+			players.add( player);
+			
+			System.out.println("Player " + (i+1) + " will be " + players.get(i).getNameOfPlayer());
+		}//while();
 		
 		getInput.close();
 		//round(playerArray, numOfPrizes, numOfIterations);
+		CardGroup deckOfCards = new CardGroup();
+		System.out.println(deckOfCards.displayDeck().toString());
+		Deck deck = new Deck(deckOfCards);
+		deck.Shuffle();
+		//Collections.shuffle(deck.getDeck().displayDeck());
+		System.out.println(deck.getDeck().displayDeck());
+		
+		while(deck.hasCards()) {
+			for(Player player : players)
+			player.InvokeDraw(deck.DistributeCard());
+		}
+	
 		
 		//get deck
 		//start round
-		Round startGame = new Round(players, numOfPrizes, numOfIterations, VariationForWar);
+		Round startGame = new Round(players, numOfPrizes, numOfIterations, variationForGame);
 		Player gameWinner = startGame.gameStart();
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
 
 	public static String getVariation() {
-		return Variation;
+		return variationForGame;
 	}
 /*
 	public static void setVariation(String variation) {
@@ -82,6 +104,9 @@ public class Game {
 	*/
 	public static void setVariation(String variation){
 		variationForGame = variation;
+		if(!variationForGame.equals("A") && !variationForGame.equals("B") && !variationForGame.equals("C")) {
+			variationForGame = "A";
+		}
 	}
 
 }

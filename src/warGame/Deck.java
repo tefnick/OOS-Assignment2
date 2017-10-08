@@ -1,6 +1,8 @@
 package warGame;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 
 /**
@@ -24,7 +26,7 @@ public class Deck {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("static-access")
+	//@SuppressWarnings("static-access")
 	public Card DistributeCard(){
 		Card TopOfDeckCard = cardDeck.getCardAtIndex(0);
 		cardDeck.displayDeck().remove(0);
@@ -34,8 +36,21 @@ public class Deck {
 	/**
 	 * 
 	 */
-	@SuppressWarnings("static-access")
+	//@SuppressWarnings("static-access")
 	public void Shuffle(){
-		Collections.shuffle(cardDeck.displayDeck()); // :)
+		Collections.shuffle(this.cardDeck.displayDeck()); // :)
+		
 	}
+	
+	public boolean hasCards() {
+		if (this.cardDeck.deckSize() > 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public CardGroup getDeck() {
+        return this.cardDeck; 
+    }
+    
 }

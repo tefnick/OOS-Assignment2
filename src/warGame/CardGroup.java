@@ -16,7 +16,7 @@ public class CardGroup{
 	/*Traditional deck size of 52 but can be changed 
 	 *for testing purposes*/
 	private static final int deckSize = 52; 
-	private static final List<Card> cardDeck = new ArrayList<Card>(deckSize);
+	private static List<Card> cardDeck = new ArrayList<Card>();
 	
 	/* Initializes the Full Traditional deck once as static 
 	 * to preserve the Singleton property */
@@ -55,7 +55,7 @@ public class CardGroup{
      * Returns the card deck to use for other classes
      * @return The Card Deck
      */
-    public static ArrayList<Card> displayDeck() {
-        return new ArrayList<Card>(cardDeck); 
+    public List<Card> displayDeck() {
+        return this.cardDeck; 
     }
 }
