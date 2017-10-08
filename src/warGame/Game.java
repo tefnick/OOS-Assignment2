@@ -30,13 +30,11 @@ public class Game {
 		deck.Shuffle();
 		while (deck.hasCards() == true) {
 			for (Player player : players) {
-				System.out.println(player.getNameOfPlayer());
 				if(deck.hasCards() == true) {
 					player.InvokeDraw(deck.DistributeCard());
 				}else break;
 			}
 		}
-		System.out.println("made it out of while\n");
 		// start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations, variationForGame);
 		Player gameWinner = startGame.gameStart();
