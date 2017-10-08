@@ -295,9 +295,6 @@ public class WarVariationC implements War {
 				}
 					
 			}
-			
-			
-			
 		
 		}
 	}
