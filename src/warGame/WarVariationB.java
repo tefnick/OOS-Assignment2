@@ -1,6 +1,7 @@
 package warGame;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class WarVariationB implements War {
@@ -18,7 +19,7 @@ public class WarVariationB implements War {
 	public void WarCompareCards(ArrayList<Player> players) {
 		
 		Player winner = null;
-		LinkedHashMap<Player, Card> playersAndCards = new LinkedHashMap<Player, Card>();
+		HashMap<Player, Card> playersAndCards = new HashMap<Player, Card>();
 		
 		/*iterate through all players and collect their up cards */
 		for(int i = 0; i < players.size(); i++)
@@ -31,7 +32,7 @@ public class WarVariationB implements War {
 			Card currentCard = playersAndCards.get(i);
 			Card previousCard = playersAndCards.get(i - 1);	
 		
-			if(currentCard.getRank().compareTo(previousCard.getRank()) == 0){
+			if(currentCard.getRank().compareTo(previousCard.getRank()) == 0){ // if same
 				cards.add(previousCard);
 				cards.add(currentCard);
 				WarCompareCards(players);
@@ -53,6 +54,7 @@ public class WarVariationB implements War {
 		}	
 		
 		winner.addPlayerPoints(pointscounter);
+		Logger.displayWinnerOfRound(winner);
 		this.winnerOfWar = winner;
 		pointscounter = 0;
 	}
@@ -63,6 +65,7 @@ public class WarVariationB implements War {
 	 * @return
 	 */
 	public Player WinnerOfWar(){
+		Logger.displayWinnerOfGame(winnerOfWar);
 		return this.winnerOfWar;
 	}
 

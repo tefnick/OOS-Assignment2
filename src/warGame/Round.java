@@ -28,7 +28,6 @@ public class Round {
 	}
 			
 	public Round(ArrayList<Player> players, int numOfPrizes, int numOfIterations, String variation) {
-		System.out.print(players.toString());
 		this.players = players;
 		this.numOfPrizes = numOfPrizes;
 		this.numOfIterations = numOfIterations;
@@ -162,6 +161,7 @@ public class Round {
 				//winner = WarVariationA.WinnerOfWar();
 			}else if(Game.getVariation().equals("B")){
 				WarVariationB WarVariationB = new WarVariationB(players);
+				WarVariationB.WarCompareCards(players);
 				//winner = WarVariationB.WinnerOfWar();
 			}else{
 				WarVariationC WarVariationC = new WarVariationC();
