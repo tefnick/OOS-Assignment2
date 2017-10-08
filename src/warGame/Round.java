@@ -146,11 +146,11 @@ public class Round {
 			if(Game.getVariation().equals("A")) {
 				WarVariationA WarVariationA = new WarVariationA(players, numOfIterations);
 				WarVariationA.WarCompareCards(players);
-				//winner = WarVariationA.WinnerOfWar();
+				winner = WarVariationA.WinnerOfWar();
 			}else if(Game.getVariation().equals("B")){
 				WarVariationB WarVariationB = new WarVariationB(players);
 				WarVariationB.WarCompareCards(players);
-				//winner = WarVariationB.WinnerOfWar();
+				winner = WarVariationB.WinnerOfWar();
 			}else{
 				
 			}
