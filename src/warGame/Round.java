@@ -76,14 +76,18 @@ public class Round {
 				return gameWinner;
 			}
 			}
+			
 			//check game over from lack of playing cards left, game winner has most points
-			if(roundWinner.getHandOfPlayer().getNumberOfCards() == 0) {
+			//roundWinner.getHandOfPlayer().getNumberOfCards() == 0
+			
+			if(players.get(0).getHandOfPlayer().getNumberOfCards() == 0 || players.get(1).getHandOfPlayer().getNumberOfCards() == 0) {
+				System.out.println("Check1");
 				int highestNumberOfPoints = 0;
 				if(!this.VariationForWar.equalsIgnoreCase("A")){
 					for (int i = 0; i < players.size(); i++) {
 						if(highestNumberOfPoints < players.get(i).getTotalPoints()) {
 							gameWinner = players.get(i);
-							Logger.displayWinnerOfGame(gameWinner);
+							//Logger.displayWinnerOfGame(gameWinner);
 							return gameWinner;
 						}
 					}
@@ -91,7 +95,7 @@ public class Round {
 					for (int i = 0; i < players.size(); i++) {
 						if(players.get(i).getHandOfPlayer().getNumberOfCards() != 0) {
 							gameWinner = players.get(i);
-							Logger.displayWinnerOfGame(gameWinner);
+							//Logger.displayWinnerOfGame(gameWinner);
 							return gameWinner;
 						}
 					}
@@ -99,12 +103,15 @@ public class Round {
 				gameOver++;
 				return gameWinner;
 			}
+			
+			
+			
 		}while(gameOver == 0);
 	
 		return gameWinner;
 	}
 
-	public  Player compareCards(ArrayList<Player> players) {
+	public Player compareCards(ArrayList<Player> players) {
 		int numOfPlayers = players.size();
 		Player winner = null;
 		/*
@@ -121,7 +128,7 @@ public class Round {
 		for (int i = 0; i < numOfPlayers; i++) {
 			
 			//There should be a check here and return 
-			if(players.get(i).getHandOfPlayer().getNumberOfCards() < 1){
+			if(players.get(i).getHandOfPlayer().getNumberOfCards() == 0){
 				System.out.println("Player " + players.get(i).getNameOfPlayer() + " has run out of cards");	
 				if(this.VariationForWar.equalsIgnoreCase("A")){
 					for(int j = 0; j < players.size(); j++){

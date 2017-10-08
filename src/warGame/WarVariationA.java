@@ -167,65 +167,6 @@ public class WarVariationA implements War {
 		
 	this.WinnerOfWar = winner;
 	return;
-		
-		
-		/**
-		Player winner = null;
-		Card player1Card;
-		Card player2Card;
-		Card highCard;
-		LinkedHashMap<Player, Card> playersAndCards = new LinkedHashMap<Player, Card>();
-		
-
-		if(players.get(0).getHandOfPlayer().getNumberOfCards() > 4 && players.get(1).getHandOfPlayer().getNumberOfCards() > 4){
-			for(int i = 0; i < 3; i++){
-				players.get(0).disCard();
-				players.get(1).disCard();
-			}
-		}
-		
-
-		for(int i = 0; i < playersAndCards.values().size(); i++){
-			Card currentCard = players.get(0).InvokePlay();
-			Card previousCard = players.get(1).InvokePlay();	
-		
-			//TODO needs a war determining segment that tracks all possible war members, 4 max
-			if(currentCard.getValue() == previousCard.getValue()){
-				Cards.add(previousCard);
-				Cards.add(currentCard);
-				WarCompareCards(players);
-			}
-			
-			if(currentCard.getValue() > previousCard.getValue()){
-				highCard = currentCard;
-				winner = players.get(0);
-				winner.getHandOfPlayer().addCard(currentCard);
-				winner.getHandOfPlayer().addCard(previousCard);
-				if(Cards.size() != 0){
-					for(int j = 0; j < Cards.size();j++){
-						winner.getHandOfPlayer().addCard(Cards.get(j));
-					}
-				}
-				
-			}else{
-				highCard = previousCard;
-				winner = players.get(1);
-				winner.getHandOfPlayer().addCard(currentCard);
-				winner.getHandOfPlayer().addCard(previousCard);
-				if(Cards.size() != 0){
-					for(int j = 0; j < Cards.size();j++){
-						winner.getHandOfPlayer().addCard(Cards.get(j));
-					}
-				}
-				
-			}
-		}	
-		
-		//TODO winner.getPrizes();
-		this.WinnerOfWar = winner;
-		*/
-		
-		
 	}
 	
 	/**
