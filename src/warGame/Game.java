@@ -15,13 +15,8 @@ public class Game {
 	private static int numOfPrizes;
 	private static int numOfIterations;
 	private static String variationForGame;
-	//private variation Variation;
-	//private enum variation {A, B, C};
-	/* this could be a list instead of array
-	//private static player playerArray[];//need to make player class,
-	 * 
-	*/
 	private static ArrayList<Player> players;
+	private static final int maxIterations = 50; 
 	
 	public static void main(String[] args) {
 		Scanner getInput = new Scanner(System.in);
@@ -38,11 +33,23 @@ public class Game {
 		System.out.println("How many iterations should be played this game: ");
 		numOfIterations = getInput.nextInt();
 		System.out.println("What variation(A, B, C):  ");
+		variationForGame = getInput.next().toUpperCase();
+		//setVariation(getInput.next().toUpperCase());
 
-		//variation = getInput.next().toUpperCase();
-
-		setVariation(getInput.next().toUpperCase());
-
+		if(numOfPlayers > 3){
+			numOfPlayers = 3;
+		}
+		if(numOfIterations > 50){
+			numOfIterations = maxIterations;
+		}
+		if(!variationForGame.equalsIgnoreCase("A") && !variationForGame.equalsIgnoreCase("B") && !variationForGame.equalsIgnoreCase("C")){
+			if(numOfPlayers == 2){
+				variationForGame = "A";
+			}else{
+				variationForGame = "C";
+			}
+		}
+		setVariation(variationForGame);
 		
 		
 		//could call populatePlayers(getInput);
