@@ -26,22 +26,7 @@ public class Game {
 	public static void main(String[] args) {
 		Scanner getInput = new Scanner(System.in);
 		
-		/* could call getPlayers(getInput) function
-		 * get # of players, enter that many names, return players
-		 */
-		System.out.println("Please enter the number of players: ");
-		numOfPlayers = getInput.nextInt();
-		//could call get numPrizes(getInput)
-		System.out.println("Please enter the number of prizes in a war: ");
-		numOfPrizes = getInput.nextInt();
-		//could call getIterations(getInput);
-		System.out.println("How many iterations should be played this game: ");
-		numOfIterations = getInput.nextInt();
-		System.out.println("What variation(A, B, C):  ");
-
-		//variation = getInput.next().toUpperCase();
-
-		setVariation(getInput.next().toUpperCase());
+		getWarMethod(getInput);
 
 		
 		
@@ -89,6 +74,24 @@ public class Game {
 		Player gameWinner = startGame.gameStart();
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
+	}
+
+	private static void getWarMethod(Scanner getInput) {
+		/* could call getPlayers(getInput) function
+		 * get # of players, enter that many names, return players
+		 */
+		System.out.println("What variation(A, B, C):  ");
+		setVariation(getInput.next().toUpperCase());
+		System.out.println("Please enter the number of players: ");
+		numOfPlayers = getInput.nextInt();
+		//could call get numPrizes(getInput)
+		System.out.println("Please enter the number of prizes in a war: ");
+		numOfPrizes = getInput.nextInt();
+		//could call getIterations(getInput);
+		if(getVariation().equals("A")) {
+		System.out.println("How many iterations should be played this game: ");
+		numOfIterations = getInput.nextInt();
+		}
 	}
 
 	public static String getVariation() {
