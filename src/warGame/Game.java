@@ -14,29 +14,32 @@ import java.util.Scanner;
 public class Game {
 	private static int numOfPlayers;
 	private static int numOfPrizes;
-	private static int numOfIterations = 1;
+	
+
+	private static int numOfIterations;
 	private static String variationForGame;
 	private static ArrayList<Player> players;
 	private static final int maxIterations = 50;
 
 	public static void main(String[] args) {
 		Scanner getInput = new Scanner(System.in);
-
-		getWarMethod(getInput);
-		// could call populatePlayers(getInput);
 		players = new ArrayList<Player>();
-		getPlayersList(getInput); // while();
-
+		getWarMethod(getInput);
+		getPlayersList(getInput);
 		getInput.close();
 		// round(playerArray, numOfPrizes, numOfIterations);
 		CardGroup deckOfCards = new CardGroup();
-		// deckOfCards.displayDeck();
+		deckOfCards.displayDeck();
 		Deck deck = new Deck(deckOfCards);
 
 		// Collections.shuffle(deck.getDeck().displayDeck());
 		deck.Shuffle();
 		// deckOfCards.displayDeck();
-
+		/*for (int i = 52; i >0; i ++) {
+			for(Player player: players) {
+				player.InvokeDraw(deck.DistributeCard());
+			}
+		}*/
 		while (deck.hasCards() == true) {
 			for (Player player : players)
 				player.InvokeDraw(deck.DistributeCard());
@@ -58,7 +61,7 @@ public class Game {
 				playerName = getInput.nextLine();
 			}
 			Player player = new Player(playerName);
-			players.add(player);
+			addPlayers(player);
 			System.out.println("Player " + (i + 1) + " will be " + players.get(i).getNameOfPlayer() + "\n");
 		}
 	}
@@ -68,7 +71,7 @@ public class Game {
 		String variation = getInput.next().toUpperCase();
 		setVariation(variation);
 		if (getVariation().equals("A") || getVariation().equals("B")) {
-			numOfPlayers = 2;
+			setNumOfPlayers(2);
 			System.out.println("The number of players for version A and B is always 2.");
 			System.out.println("How many iterations should be played this game: ");
 			numOfIterations = getInput.nextInt();
@@ -77,13 +80,13 @@ public class Game {
 			}
 		} else {
 			System.out.println("Please enter the number of players: ");
-			numOfPlayers = getInput.nextInt();
-			if (numOfPlayers > 3) {
-				numOfPlayers = 3;
+			setNumOfPlayers(getInput.nextInt());
+			if (getNumOfPlayers() > 3) {
+				setNumOfPlayers(3);
 			}
 		}
 		System.out.println("Please enter the number of prizes in a war: ");
-		numOfPrizes = getInput.nextInt();
+		setNumOfPrizes(getInput.nextInt());
 	}
 
 	public static String getVariation() {
@@ -101,5 +104,33 @@ public class Game {
 		if (!variationForGame.equals("A") && !variationForGame.equals("B") && !variationForGame.equals("C")) {
 			variationForGame = "A";
 		}
+	}
+	public static int getNumOfPlayers() {
+		return numOfPlayers;
+	}
+
+	public static void setNumOfPlayers(int numOfPlayers) {
+		Game.numOfPlayers = numOfPlayers;
+	}
+	public static int getNumOfIterations() {
+		return numOfIterations;
+	}
+
+	public static void setNumOfIterations(int numOfIterations) {
+		Game.numOfIterations = numOfIterations;
+	}
+	public static ArrayList<Player> getPlayers() {
+		return players;
+	}
+
+	public static void addPlayers(Player player) {
+		Game.players.add(player);
+	}
+	public static int getNumOfPrizes() {
+		return numOfPrizes;
+	}
+
+	public static void setNumOfPrizes(int numOfPrizes) {
+		Game.numOfPrizes = numOfPrizes;
 	}
 }
