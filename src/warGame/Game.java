@@ -14,8 +14,6 @@ import java.util.Scanner;
 public class Game {
 	private static int numOfPlayers;
 	private static int numOfPrizes;
-	
-
 	private static int numOfIterations;
 	private static String variationForGame;
 	private static ArrayList<Player> players;
@@ -27,25 +25,19 @@ public class Game {
 		getWarMethod(getInput);
 		getPlayersList(getInput);
 		getInput.close();
-		// round(playerArray, numOfPrizes, numOfIterations);
 		CardGroup deckOfCards = new CardGroup();
-		deckOfCards.displayDeck();
+		//deckOfCards.displayDeck();
 		Deck deck = new Deck(deckOfCards);
-
 		// Collections.shuffle(deck.getDeck().displayDeck());
 		deck.Shuffle();
 		// deckOfCards.displayDeck();
-		/*for (int i = 52; i >0; i ++) {
-			for(Player player: players) {
+		while (deck.hasCards() == true) {
+			for (Player player : players) {
+				//System.out.println(player.getNameOfPlayer());
 				player.InvokeDraw(deck.DistributeCard());
 			}
-		}*/
-		while (deck.hasCards() == true) {
-			for (Player player : players)
-				player.InvokeDraw(deck.DistributeCard());
 		}
-
-		// get deck
+		System.out.println("made it out of while");
 		// start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations, variationForGame);
 		Player gameWinner = startGame.gameStart();
@@ -73,8 +65,10 @@ public class Game {
 		if (getVariation().equals("A") || getVariation().equals("B")) {
 			setNumOfPlayers(2);
 			System.out.println("The number of players for version A and B is always 2.");
-			System.out.println("How many iterations should be played this game: ");
-			numOfIterations = getInput.nextInt();
+			if(getVariation().equals("A") ) {
+				System.out.println("How many iterations should be played this game: ");
+				numOfIterations = getInput.nextInt();
+			}
 			if (numOfIterations > 50) {
 				numOfIterations = maxIterations;
 			}
