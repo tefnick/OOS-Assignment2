@@ -40,6 +40,7 @@ public class Round {
 			if(Game.getVariation().equals("A")) {
 				//roundWinner = compareUpCards(players);
 				roundWinner = compareCards(players);
+				
 			} else if(Game.getVariation().equals("B")) {
 				//roundWinner = compareUpCards(players);
 				roundWinner = compareCards(players);
