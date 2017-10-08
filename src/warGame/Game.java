@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Game {
 	private static int numOfPlayers;
 	private static int numOfPrizes;
-	private static int numOfIterations;
+	private static int numOfIterations = 1;
 	private static String variationForGame;
 	private static ArrayList<Player> players;
 	private static final int maxIterations = 50;
@@ -25,25 +25,7 @@ public class Game {
 		getWarMethod(getInput);
 		// could call populatePlayers(getInput);
 		players = new ArrayList<Player>();
-		for (int i = 0; i < numOfPlayers; i++) {
-			// do {
-			System.out.println("Please enter the name of player " + (i + 1) + ": ");
-
-			// Player player; //= new Player(getInput.nextLine());
-			// player.setNameOfPlayer(getInput.nextLine());
-			String playerName = "";
-
-			// if(getInput.hasNextLine()) {
-			while (playerName.isEmpty()) {
-				playerName = getInput.nextLine();
-				// }
-			}
-			Player player = new Player(playerName);
-			players.add(player);
-
-			System.out.println("Player " + (i + 1) + " will be " + players.get(i).getNameOfPlayer() + "\n");
-
-		} // while();
+		getPlayersList(getInput); // while();
 
 		getInput.close();
 		// round(playerArray, numOfPrizes, numOfIterations);
@@ -55,7 +37,7 @@ public class Game {
 		deck.Shuffle();
 		// deckOfCards.displayDeck();
 
-		while (deck.hasCards()) {
+		while (deck.hasCards() == true) {
 			for (Player player : players)
 				player.InvokeDraw(deck.DistributeCard());
 		}
@@ -66,6 +48,19 @@ public class Game {
 		Player gameWinner = startGame.gameStart();
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
+	}
+
+	private static void getPlayersList(Scanner getInput) {
+		for (int i = 0; i < numOfPlayers; i++) {
+			System.out.println("Please enter the name of player " + (i + 1) + ": ");
+			String playerName = "";
+			while (playerName.isEmpty()) {
+				playerName = getInput.nextLine();
+			}
+			Player player = new Player(playerName);
+			players.add(player);
+			System.out.println("Player " + (i + 1) + " will be " + players.get(i).getNameOfPlayer() + "\n");
+		}
 	}
 
 	private static void getWarMethod(Scanner getInput) {
