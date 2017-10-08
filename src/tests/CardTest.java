@@ -45,7 +45,6 @@ public class CardTest {
 		System.out.println("Size of Card Deck = " + cards.deckSize());
 		for(int i = 0; i < cards.deckSize(); i++)
 			System.out.println(cards.getCardAtIndex(i));
-		assertNotNull("cards list should not be null!", cards.displayDeck());	
 	}
 	
 	@Test
