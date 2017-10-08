@@ -76,7 +76,6 @@ public class WarVariationB implements War {
 				}
 				if(players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
 					winner = players.get(0);
-	//				System.out.println(players.get(0).getNameOfPlayer());
 					Logger.displayWinnerOfRound(players.get(0));
 					winner.addPlayerPoints(this.pointsCounter);
 					this.pointsCounter = 0;
@@ -92,7 +91,6 @@ public class WarVariationB implements War {
 		if(player1Card.getValue() > player2Card.getValue()){//if player 1 has highcard
 			highCard = player1Card;
 			winner = players.get(0);
-//			System.out.println(players.get(0).getNameOfPlayer());
 			Logger.displayWinnerOfRound(winner);
 			winner.increasePlayerPoints();
 			
