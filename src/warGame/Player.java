@@ -44,6 +44,10 @@ public class Player {
 		return this.HandOfPlayer.PlayCard(this);
 	}
 	
+	public void disCard(){
+		this.HandOfPlayer.disCard();
+	}
+	
 	/**
 	 * 
 	 */

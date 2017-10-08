@@ -38,6 +38,10 @@ public class Hand {
 		CurrentHand.add(card);
 	}
 	
+	public void disCard(){
+		CurrentHand.remove(0);
+	}
+	
 	public int getNumberOfCards() {
 		return CurrentHand.size();
 	}
