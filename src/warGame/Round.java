@@ -3,8 +3,7 @@ package warGame;
 import java.util.ArrayList;
 
 /**
- * @author Justin
- * Round acts as the game driver
+ * @author Justin Round acts as the game driver
  */
 public class Round {
 	private ArrayList<Player> players;
@@ -20,7 +19,6 @@ public class Round {
 		this.VariationForWar = variation;
 	}
 
-
 	public Player gameStart() {
 		int roundIteration = 0;
 		int gameOver = 0;
@@ -34,7 +32,6 @@ public class Round {
 			for (int i = 0; i < players.size(); i++) {
 				if (players.get(i).getHandOfPlayer().getNumberOfCards() == 52) {
 					gameOver++;
-					Logger.displayAScore(players);
 					return players.get(i); // ^^
 				}
 			}
@@ -54,10 +51,8 @@ public class Round {
 					}
 					if (gameWinner2 == null) {
 						gameOver++;
-						Logger.displayAScore(players);
 						return gameWinner;
 					} else {
-						Logger.displayAScore(players);
 						Logger.displayWinnerOfGameTie(gameWinner, gameWinner2);
 						Player gameTIE = new Player("TIE");
 						return gameTIE;
