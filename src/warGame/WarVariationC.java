@@ -150,7 +150,7 @@ public class WarVariationC implements War {
 			
 			//Check to see if there is a winner
 			if(playersForWar.size() == 1){
-				winner = playersForWar.get(1);
+				winner = playersForWar.get(0);//1 was previous
 				this.WinnerOfWar = winner;
 				Logger.displayWinnerOfRound(winner);
 				winner.increasePlayerPoints();

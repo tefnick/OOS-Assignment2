@@ -51,4 +51,15 @@ public class Logger {
 		System.out.println(player.getNameOfPlayer() + " wins the game!");
 	}
 
+	public static void displayWinnerOfGameTie(Player player1, Player player2) {
+		System.out.println("The game ended in a tie between " + player1.getNameOfPlayer() 
+		+ " and " + player2.getNameOfPlayer() + "!");
+	}
+	public static void displayAScore(ArrayList<Player> players) {
+		System.out.print("Number of cards in hand is ");
+		for(Player player : players) {
+			System.out.print(player.getNameOfPlayer() + " " 
+		+ player.getHandOfPlayer().getNumberOfCards() + ", ");
+		}
+	}
 }

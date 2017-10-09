@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-//import warGame.Round.variation;
-
 /**
  * 
  * @author Justin
@@ -38,12 +36,15 @@ public class Game {
 		// start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations, variationForGame);
 		Player gameWinner = startGame.gameStart();
+		//if(gameWinner.getNameOfPlayer().equals("TIE")) {
+		//	return;
+		//}
+		//Logger.displayScore(players);
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
 
 	
-
 	private static void getWarMethod(Scanner getInput) {
 		System.out.println("What variation(A, B, C):  ");
 		String variation = getInput.next().toUpperCase();
