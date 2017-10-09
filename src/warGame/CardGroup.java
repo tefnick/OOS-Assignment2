@@ -35,24 +35,24 @@ public class CardGroup{
     }
     
     /**
-     * 
+     * Gets a card at a given index
      * @param index
-     * @return
+     * @return a Card at that index
      */
     public Card getCardAtIndex(int index){
     	return cardDeck.get(index);
     }
     
     /**
-     * 
-     * @return
+     * Returns the size of this deck 
+     * @return an int of the size of this deck
      */
     public int deckSize(){
     	return cardDeck.size(); 
     }
     
     /**
-     * Returns the card deck to use for other classes
+     * Prints the card deck to the console
      * @return The Card Deck
      */
     public void displayDeck() {
@@ -61,9 +61,11 @@ public class CardGroup{
     	}
     }
 
+    /**
+     * Returns the card deck to use for other classes
+     * @return The Card Deck
+     */
 	public static List<Card> getCardDeck() {
 		return cardDeck;
 	}
-    
-
 }
