@@ -126,6 +126,7 @@ public class Round {
 	public Player compareCards(ArrayList<Player> players) {
 		int numOfPlayers = players.size();
 		Player winner = null;
+		ArrayList<Card> prizePile = new ArrayList<Card>();
 		/*
 		 * roundTracker array values index 0: current highest value index 1: current
 		 * winning player index in players index 2: war achieved 1 = true index 3: 2nd
@@ -159,7 +160,10 @@ public class Round {
 			}
 
 			Card card = players.get(i).InvokePlay();
-
+			if(Game.getVariation().equals("A")) {
+				prizePile.add(card);
+			}
+			
 			// Logger.displayUpCard(players.get(i), card);
 			if (card.getValue() > roundTracker[0]) {// TODO getValue, returns int card value
 				roundTracker[0] = card.getValue(); // TODO card implementations
@@ -171,6 +175,7 @@ public class Round {
 				}
 
 				winner = players.get(roundTracker[1]);
+			
 			} else if (card.getValue() == roundTracker[0]) {// TODO card implementations
 				if (roundTracker[2] == 0) {// no war yet
 					roundTracker[2] = 1; // set war to true
@@ -214,6 +219,12 @@ public class Round {
 		}
 		// winner.hand.addCards(prizes);//implement prizes
 		players.get(roundTracker[1]).addPlayerPoints(players.size());
+		if(Game.getVariation().equals("A")) {
+			for (Card card : prizePile) {
+			players.get(roundTracker[1]).getHandOfPlayer().addCard(card);
+		}
+		}
+		
 		return winner;
 	}
 

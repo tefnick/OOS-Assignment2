@@ -30,6 +30,11 @@ public class Hand {
 		return card;
 	}
 	
+	public Card PrizeSet(Player player) {
+		Card card = CurrentHand.get(0);
+		CurrentHand.remove(0);
+		return card;
+	}
 	/**
 	 * 
 	 * @param card

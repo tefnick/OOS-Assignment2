@@ -48,6 +48,9 @@ public class Player {
 		this.HandOfPlayer.disCard();
 	}
 	
+	public Card setPrize() {
+		return this.HandOfPlayer.PrizeSet(this);
+	}
 	/**
 	 * 
 	 */

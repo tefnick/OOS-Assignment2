@@ -36,10 +36,11 @@ public class Game {
 		// start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations, variationForGame);
 		Player gameWinner = startGame.gameStart();
-		//if(gameWinner.getNameOfPlayer().equals("TIE")) {
-		//	return;
-		//}
+		if(gameWinner.getNameOfPlayer().equals("TIE")) {
+			return;
+		}
 		//Logger.displayScore(players);
+		//Logger.displayAScore(players);
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
