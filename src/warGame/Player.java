@@ -6,14 +6,15 @@ package warGame;
  *
  */
 public class Player {
-	
-	//Variables for Player class
+
+	// Variables for Player class
 	private String nameOfPlayer;
 	private Hand HandOfPlayer;
 	private int TotalPoints;
-	
+
 	/**
 	 * Constructor for Player Object
+	 * 
 	 * @param nameOfPlayer
 	 */
 	public Player(String nameOfPlayer) {
@@ -24,48 +25,51 @@ public class Player {
 
 	public String getNameOfPlayer() {
 		return this.nameOfPlayer;
-	} 
-	
+	}
+
 	public void setNameOfPlayer(String name) {
 		this.nameOfPlayer = name;
 	}
-	
+
 	/**
 	 * Display an up card to be played
+	 * 
 	 * @return Card to played
 	 */
-	public Card InvokePlay(){
+	public Card InvokePlay() {
 		return this.HandOfPlayer.PlayCard(this);
 	}
-	
+
 	/**
 	 * Remove a card from hand
 	 */
-	public void disCard(){
+	public void disCard() {
 		this.HandOfPlayer.disCard();
 	}
-	
+
 	public Card setPrize() {
 		return this.HandOfPlayer.PrizeSet(this);
 	}
-	
+
 	/**
 	 * Draw a card from hand
 	 */
-	public void InvokeDraw(Card card){
+	public void InvokeDraw(Card card) {
 		this.HandOfPlayer.DrawCard(card);
 	}
-	
+
 	/**
-	 * Return the hand of this player 
+	 * Return the hand of this player
+	 * 
 	 * @return
 	 */
-	public Hand getHandOfPlayer(){
+	public Hand getHandOfPlayer() {
 		return this.HandOfPlayer;
 	}
 
 	/**
 	 * Get total points from this player
+	 * 
 	 * @return int value of total points
 	 */
 	public int getTotalPoints() {
@@ -73,14 +77,14 @@ public class Player {
 	}
 
 	/**
-	 *Adds points to player if they won a round
+	 * Adds points to player if they won a round
 	 */
-	public void increasePlayerPoints(){
+	public void increasePlayerPoints() {
 		this.TotalPoints += 2;
 	}
-	
+
 	public void addPlayerPoints(int points) {
 		this.TotalPoints += points;
 	}
-	
+
 }

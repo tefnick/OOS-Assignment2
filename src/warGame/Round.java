@@ -18,7 +18,9 @@ public class Round {
 		this.numOfIterations = numOfIterations;
 		this.VariationForWar = variation;
 	}
-
+	/**
+	 * Driver for the game
+	 */
 	public Player gameStart() {
 		int roundIteration = 0;
 		int gameOver = 0;
@@ -69,7 +71,10 @@ public class Round {
 		} while (gameOver == 0);
 		return gameWinner;
 	}
-
+	/**
+	 * decides if there is a winner
+	 * @param player
+	 */
 	private Player decideWinnerNoCards(Player gameWinner) {
 		int highestNumberOfPoints = 0;
 		if (!this.VariationForWar.equalsIgnoreCase("A")) {
@@ -88,7 +93,10 @@ public class Round {
 		}
 		return gameWinner;
 	}
-
+	/**
+	 * Compares cards for the round
+	 * @param players
+	 */
 	public Player compareCards(ArrayList<Player> players) {
 		int numOfPlayers = players.size();
 		Player winner = null;
@@ -147,7 +155,10 @@ public class Round {
 		}
 		return winner;
 	}
-
+	/**
+	 * Decides what version of war to call
+	 * @param players
+	 */
 	private Player decideWarVersion(ArrayList<Player> players) {
 		Player winner;
 		if (Game.getVariation().equals("A")) {

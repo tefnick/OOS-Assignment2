@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 /**
  * Main method for War game that handles multiple variations
+ * 
  * @author Justin
  */
 public class Game {
-	
+
 	private static int numOfPlayers;
 	private static int numOfPrizes;
 	private static int numOfIterations;
@@ -28,22 +29,23 @@ public class Game {
 		deck.Shuffle();
 		while (deck.hasCards() == true) {
 			for (Player player : players) {
-				if(deck.hasCards() == true) {
+				if (deck.hasCards() == true) {
 					player.InvokeDraw(deck.DistributeCard());
-				}else break;
+				} else
+					break;
 			}
 		}
 		// start round
 		Round startGame = new Round(players, numOfPrizes, numOfIterations, variationForGame);
 		Player gameWinner = startGame.gameStart();
-		if(gameWinner.getNameOfPlayer().equals("TIE")) {
+		if (gameWinner.getNameOfPlayer().equals("TIE")) {
 			return;
 		}
-		
+
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
-	
+
 	/**
 	 * Configures the war game with given variation
 	 */
@@ -58,13 +60,14 @@ public class Game {
 
 	/**
 	 * Configures the particular war variation
+	 * 
 	 * @param getInput
 	 */
 	private static void setupGameVariationProperties(Scanner getInput) {
 		if (getVariation().equals("A") || getVariation().equals("B")) {
 			setNumOfPlayers(2);
 			System.out.println("The number of players for version A and B is always 2.");
-			if(getVariation().equals("A") ) {
+			if (getVariation().equals("A")) {
 				System.out.println("How many iterations should be played this game: ");
 				numOfIterations = getInput.nextInt();
 			}
@@ -79,10 +82,12 @@ public class Game {
 			}
 		}
 	}
-	
+
 	/**
 	 * Gets the players in the game
-	 * @param getInput player names input by keyboard
+	 * 
+	 * @param getInput
+	 *            player names input by keyboard
 	 */
 	private static void getPlayersList(Scanner getInput) {
 		for (int i = 0; i < numOfPlayers; i++) {
@@ -96,7 +101,7 @@ public class Game {
 			System.out.println("Player " + (i + 1) + " will be " + players.get(i).getNameOfPlayer() + "\n");
 		}
 	}
-	
+
 	public static String getVariation() {
 		return variationForGame;
 	}
@@ -107,7 +112,7 @@ public class Game {
 			variationForGame = "A";
 		}
 	}
-	
+
 	public static int getNumOfPlayers() {
 		return numOfPlayers;
 	}
@@ -115,7 +120,7 @@ public class Game {
 	public static void setNumOfPlayers(int numOfPlayers) {
 		Game.numOfPlayers = numOfPlayers;
 	}
-	
+
 	public static int getNumOfIterations() {
 		return numOfIterations;
 	}
@@ -123,7 +128,7 @@ public class Game {
 	public static void setNumOfIterations(int numOfIterations) {
 		Game.numOfIterations = numOfIterations;
 	}
-	
+
 	public static ArrayList<Player> getPlayers() {
 		return players;
 	}
@@ -131,7 +136,7 @@ public class Game {
 	public static void addPlayers(Player player) {
 		Game.players.add(player);
 	}
-	
+
 	public static int getNumOfPrizes() {
 		return numOfPrizes;
 	}
