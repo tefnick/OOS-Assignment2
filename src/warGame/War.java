@@ -3,14 +3,15 @@ package warGame;
 import java.util.ArrayList;
 
 public interface War {
-	/**
-	 * 
-	 * @param Cards
-	 */
-	abstract void WarCompareCards(ArrayList<Player> players);//compareCards function is in round
 	
 	/**
-	 * 
+	 * Compare player cards when a War is in effect
+	 * @param Cards
+	 */
+	abstract void WarCompareCards(ArrayList<Player> players);
+	
+	/**
+	 * Return the winner of the War
 	 * @return
 	 */
 	Player WinnerOfWar();
