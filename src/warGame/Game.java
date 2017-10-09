@@ -5,11 +5,11 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * 
+ * Main method for War game that handles multiple variations
  * @author Justin
- *
  */
 public class Game {
+	
 	private static int numOfPlayers;
 	private static int numOfPrizes;
 	private static int numOfIterations;
@@ -39,17 +39,28 @@ public class Game {
 		if(gameWinner.getNameOfPlayer().equals("TIE")) {
 			return;
 		}
-		//Logger.displayScore(players);
-		//Logger.displayAScore(players);
+		
 		Logger.displayWinnerOfGame(gameWinner);
 		return;
 	}
-
 	
+	/**
+	 * Configures the war game with given variation
+	 */
 	private static void getWarMethod(Scanner getInput) {
 		System.out.println("What variation(A, B, C):  ");
 		String variation = getInput.next().toUpperCase();
 		setVariation(variation);
+		setupGameVariationProperties(getInput);
+		System.out.println("Please enter the number of prizes in a war: ");
+		setNumOfPrizes(getInput.nextInt());
+	}
+
+	/**
+	 * Configures the particular war variation
+	 * @param getInput
+	 */
+	private static void setupGameVariationProperties(Scanner getInput) {
 		if (getVariation().equals("A") || getVariation().equals("B")) {
 			setNumOfPlayers(2);
 			System.out.println("The number of players for version A and B is always 2.");
@@ -67,10 +78,12 @@ public class Game {
 				setNumOfPlayers(3);
 			}
 		}
-		System.out.println("Please enter the number of prizes in a war: ");
-		setNumOfPrizes(getInput.nextInt());
 	}
 	
+	/**
+	 * Gets the players in the game
+	 * @param getInput player names input by keyboard
+	 */
 	private static void getPlayersList(Scanner getInput) {
 		for (int i = 0; i < numOfPlayers; i++) {
 			System.out.println("Please enter the name of player " + (i + 1) + ": ");
@@ -80,7 +93,6 @@ public class Game {
 			}
 			Player player = new Player(playerName);
 			addPlayers(player);
-			System.out.println("# of players: "+ getNumOfPlayers());
 			System.out.println("Player " + (i + 1) + " will be " + players.get(i).getNameOfPlayer() + "\n");
 		}
 	}
