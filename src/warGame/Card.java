@@ -27,22 +27,13 @@ public class Card {
         SettingValue();
     }
   
-    /**
-     * 
-     * @return
-     */
     public Rank getRank() { 
     	return rank; 
     }
     
-    /**
-     * 
-     * @return
-     */
     public Suit getSuit() { 
     	return suit; 
-    }
-   
+    }   
     
     /**
      * Converts the card to a String literal
@@ -57,9 +48,7 @@ public class Card {
     public int getValue(){
     	return this.Value;
     }
-    /**
-     * 
-     */
+   
     private void SettingValue(){
     	switch(this.rank){
     	case TWO:
@@ -101,8 +90,6 @@ public class Card {
     	default:
     		this.Value = 14;
     		return;
-    	}
-    
+    	}   
     }
-
 }
