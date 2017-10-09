@@ -38,6 +38,7 @@ public class Round {
 			// winner check (52 cards in hand)
 			// if winner break and call logger with winner
 			// compare cards
+			/*
 			if (Game.getVariation().equals("A")) {
 				// roundWinner = compareUpCards(players);
 				roundWinner = compareCards(players);
@@ -50,10 +51,10 @@ public class Round {
 				// roundWinner = compareCards(players);
 				roundWinner = compareCards(players);
 				Logger.displayScore(players);
-			}
-			// roundWinner.increasePlayerPoints();//remove if done in compare
+			}*/
+			roundWinner = compareCards(players);
 			Logger.displayWinnerOfRound(roundWinner);
-
+			
 			// check game over by max cards
 			for (int i = 0; i < players.size(); i++) {
 				if (players.get(i).getHandOfPlayer().getNumberOfCards() == 52) {
