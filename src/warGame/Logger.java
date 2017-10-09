@@ -8,11 +8,6 @@ import java.util.ArrayList;
  *
  */
 public class Logger {
-	
-	private Game currentGame;
-	private Round currentRound;
-	
-	
 
 	public Logger(){}
 	
