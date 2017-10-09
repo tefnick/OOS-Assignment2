@@ -1,4 +1,5 @@
 package warGame;
+
 /**
  * 
  * @author Richard A. Bravo
@@ -21,29 +22,25 @@ public class Player {
 		this.TotalPoints = 0;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public String getNameOfPlayer() {
 		return this.nameOfPlayer;
 	} 
 	
-	/**
-	 * 
-	 * @param name
-	 */
 	public void setNameOfPlayer(String name) {
 		this.nameOfPlayer = name;
 	}
 	
 	/**
-	 * 
+	 * Display an up card to be played
+	 * @return Card to played
 	 */
 	public Card InvokePlay(){
 		return this.HandOfPlayer.PlayCard(this);
 	}
 	
+	/**
+	 * Remove a card from hand
+	 */
 	public void disCard(){
 		this.HandOfPlayer.disCard();
 	}
@@ -51,15 +48,16 @@ public class Player {
 	public Card setPrize() {
 		return this.HandOfPlayer.PrizeSet(this);
 	}
+	
 	/**
-	 * 
+	 * Draw a card from hand
 	 */
 	public void InvokeDraw(Card card){
 		this.HandOfPlayer.DrawCard(card);
 	}
 	
 	/**
-	 * 
+	 * Return the hand of this player 
 	 * @return
 	 */
 	public Hand getHandOfPlayer(){
@@ -67,13 +65,16 @@ public class Player {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Get total points from this player
+	 * @return int value of total points
 	 */
 	public int getTotalPoints() {
 		return this.TotalPoints;
 	}
 
+	/**
+	 *Adds points to player if they won a round
+	 */
 	public void increasePlayerPoints(){
 		this.TotalPoints += 2;
 	}
