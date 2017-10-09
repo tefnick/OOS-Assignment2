@@ -87,6 +87,16 @@ public class WarVariationA implements War {
 			if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1 && players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
 				winner = null;
 				Logger.displayTie();
+				for (Card card : prizePile) {
+					int i = 0;
+					if(i == 0) {
+						players.get(i).getHandOfPlayer().addCard(card);
+						i++;
+					}else {
+						players.get(i).getHandOfPlayer().addCard(card);
+						i--;
+					}
+				}
 				return;
 			}
 			if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1){
