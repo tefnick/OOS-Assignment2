@@ -1,16 +1,10 @@
 package warGame;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-
-import warGame.Card.Rank;
 
 /**
- * 
  * @author Justin
- *
+ * Round acts as the game driver
  */
 public class Round {
 	private ArrayList<Player> players;
@@ -26,9 +20,8 @@ public class Round {
 		this.VariationForWar = variation;
 	}
 
-	// round driver
+
 	public Player gameStart() {
-		// while no winner or numOfIterations > 0
 		int roundIteration = 0;
 		int gameOver = 0;
 		Player gameWinner = null;
@@ -79,7 +72,6 @@ public class Round {
 				return gameWinner;
 			}
 		} while (gameOver == 0);
-
 		return gameWinner;
 	}
 
@@ -146,8 +138,7 @@ public class Round {
 			warPlayers.add(players.get(roundTracker[1]));// add first
 			for (int j = 2; j <= 5; j++) {
 				if (roundTracker[j] != 0) {
-					// add player index from roundTracker
-					warPlayers.add(players.get(roundTracker[j]));
+					warPlayers.add(players.get(roundTracker[j]));// add player index from roundTracker
 				}
 			}
 			Logger.declareWar();
