@@ -80,6 +80,7 @@ public class Game {
 			}
 			Player player = new Player(playerName);
 			addPlayers(player);
+			System.out.println("# of players: "+ getNumOfPlayers());
 			System.out.println("Player " + (i + 1) + " will be " + players.get(i).getNameOfPlayer() + "\n");
 		}
 	}
@@ -89,7 +90,7 @@ public class Game {
 	}
 
 	public static void setVariation(String variation) {
-		variationForGame = variation;
+		variationForGame = variation.toUpperCase();
 		if (!variationForGame.equals("A") && !variationForGame.equals("B") && !variationForGame.equals("C")) {
 			variationForGame = "A";
 		}

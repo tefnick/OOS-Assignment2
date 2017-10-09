@@ -4,11 +4,14 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import warGame.Card;
 import warGame.Card.Rank;
 import warGame.Card.Suit;
 import warGame.CardGroup;
 import warGame.Game;
+import warGame.Hand;
 import warGame.Logger;
 import warGame.Player;
 import warGame.Round;
@@ -58,21 +61,14 @@ public class CardTest {
 	}
 	
 	@Test
-	public void compareUpCardsTest(){
-		ArrayList<Player> players = new ArrayList<Player>();
-		Player player1 = new Player("Nick");
-		Player player2 = new Player("Justin");
-		players.add(player1);
-		players.add(player2);
-		Round round = new Round(players, 0, 0, null);
-		Player winner;
+	public void getVariationTest(){
+		Game game = new Game();
+		String variation = "A";
+		game.setVariation(variation);
 		
-		players.get(0).InvokePlay().getRank();
-		players.get(1).InvokePlay().getRank();
-		winner = round.compareUpCards(players);
-		System.out.println(winner);	
+		assertEquals(variation, variation);
 	}
-	
+
 	@Test
 	public void CardRankCompareToTest(){
 		Card winner = null;
@@ -90,5 +86,59 @@ public class CardTest {
 		System.out.println("Winner is " + winner);
 		
 	}
+	
+	@Test
+	public void getNumberOfPlayersTest(){
+		Game game = new Game();
+		ArrayList<Player> players = new ArrayList<Player>();
+		players.add(new Player("Juan"));
+		players.add(new Player("Chu"));
+		players.add(new Player("Tre"));
+		game.setNumOfPlayers(players.size());
 		
+		assertEquals(3, game.getNumOfPlayers());		
+	}
+	
+	@Test
+	public void setVariationTest(){
+		Game game = new Game();
+		game.setVariation("c");
+		String variation = game.getVariation();
+		
+		assertEquals("C", variation);
+	}
+	
+	@Test
+	public void roundPLayersTest(){
+		ArrayList<Player> players = new ArrayList<Player>();
+		players.add(new Player("Juan"));
+		players.add(new Player("Chu"));
+		players.add(new Player("Tre"));
+		Round round = new Round(players, 3, 3, "C");
+		
+		assertEquals(3, round.getPlayers().size());
+	}
+	
+	@Test
+	public void displayNumberOfIterations(){
+		ArrayList<Player> players = new ArrayList<Player>();
+		players.add(new Player("Juan"));
+		players.add(new Player("Chu"));
+		players.add(new Player("Tre"));
+		Round round = new Round(players, 3, 3, "C");
+		
+		assertEquals(3, round.getNumOfIterations());
+	}
+	
+	@Test
+	public void disCardTest(){
+		Hand hand = new Hand();
+		int numOfCards;
+		ArrayList<Card> CurrentHand = new ArrayList<Card>(10);
+		hand.addCard(new Card(Rank.ACE, Suit.SPADES));
+		numOfCards = hand.getNumberOfCards();
+		
+		assertEquals(1, numOfCards);
+	}
+			
 }
