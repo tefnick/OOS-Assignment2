@@ -25,14 +25,12 @@ public class WarVariationB implements War {
 			for(int i = 0; i < Game.getNumOfPrizes(); i++){
 				players.get(0).disCard();
 				players.get(1).disCard();
-				this.pointsCounter += 2;
-				
+				this.pointsCounter += 2;		
 			}
 		}
-		//System.out.println("End of discards");
+
 		player1Card = players.get(0).InvokePlay();
 		player2Card = players.get(1).InvokePlay();
-		//this.pointsCounter += 2;
 
 		if(player1Card.getValue() == player2Card.getValue()){
 			if(players.get(0).getHandOfPlayer().getNumberOfCards() < 1 && players.get(1).getHandOfPlayer().getNumberOfCards() < 1){
@@ -79,8 +77,7 @@ public class WarVariationB implements War {
 					Logger.displayWinnerOfRound(players.get(0));
 					winner.addPlayerPoints(this.pointsCounter);
 					this.pointsCounter = 0;
-					return;
-					
+					return;			
 				}
 				player1Card = players.get(0).InvokePlay();
 				player2Card = players.get(1).InvokePlay();
@@ -103,21 +100,18 @@ public class WarVariationB implements War {
 			Logger.displayScore(players);
 		}
 		
-	
-	winner.addPlayerPoints(this.pointsCounter);
-	this.pointsCounter = 0;
-	this.WinnerOfWar = winner;
-	return;
+		winner.addPlayerPoints(this.pointsCounter);
+		this.pointsCounter = 0;
+		this.WinnerOfWar = winner;
+		return;
 	}
 
 	
 	/**
-	 * 
+	 * Return the winner of the War
 	 * @return
 	 */
 	public Player WinnerOfWar(){
 		return this.WinnerOfWar;
 	}
-
-
 }
