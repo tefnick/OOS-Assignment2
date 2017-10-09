@@ -198,6 +198,7 @@ public class Round {
 					warPlayers.add(players.get(roundTracker[j]));
 				}
 			}
+			
 			Logger.declareWar();
 
 			// Before you call War you must figure out which

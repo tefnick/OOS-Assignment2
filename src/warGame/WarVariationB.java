@@ -22,7 +22,7 @@ public class WarVariationB implements War {
 		Card highCard;
 		
 		if(players.get(0).getHandOfPlayer().getNumberOfCards() > 4 && players.get(1).getHandOfPlayer().getNumberOfCards() > 4){
-			for(int i = 0; i < 3; i++){
+			for(int i = 0; i < Game.getNumOfPrizes(); i++){
 				players.get(0).disCard();
 				players.get(1).disCard();
 				this.pointsCounter += 2;

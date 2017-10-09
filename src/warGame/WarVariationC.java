@@ -29,7 +29,7 @@ public class WarVariationC implements War {
 		if(players.size() == 2){
 
 			if(players.get(0).getHandOfPlayer().getNumberOfCards() > 4 && players.get(1).getHandOfPlayer().getNumberOfCards() > 4){
-				for(int i = 0; i < 3; i++){
+				for(int i = 0; i < Game.getNumOfPrizes(); i++){
 					players.get(0).disCard();
 					players.get(1).disCard();
 					this.pointsCounter += 2;
@@ -119,7 +119,7 @@ public class WarVariationC implements War {
 
 			//Check to see if the players have enough cards to play war
 			if(players.get(0).getHandOfPlayer().getNumberOfCards() > 4 && players.get(1).getHandOfPlayer().getNumberOfCards() > 4){
-				for(int i = 0; i < 3; i++){
+				for(int i = 0; i < Game.getNumOfPrizes(); i++){
 					players.get(0).disCard();
 					players.get(1).disCard();
 					players.get(2).disCard();
@@ -166,7 +166,7 @@ public class WarVariationC implements War {
 					Player player2 = playersForWar.get(1);
 					
 					if(player1.getHandOfPlayer().getNumberOfCards() > 4 && player2.getHandOfPlayer().getNumberOfCards() > 4){
-						for(int i = 0; i < 3; i++){
+						for(int i = 0; i < Game.getNumOfPrizes(); i++){
 							player1.disCard();
 							player2.disCard();
 							this.pointsCounter += 2;
